@@ -24,7 +24,7 @@ export function useButtonService():IButtonService {
 
         await authLayout(true, async (): Promise<void> => {
             await login((): void => {
-                console.log('login')
+
             })
         });
     }
@@ -33,7 +33,7 @@ export function useButtonService():IButtonService {
 
         await authLayout(false, async (): Promise<void> => {
             await registration((): void => {
-                console.log('registration')
+
             });
         });
     }
