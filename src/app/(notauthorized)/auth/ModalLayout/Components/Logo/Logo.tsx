@@ -5,7 +5,7 @@ export const Logo = () => {
 
     return (
         <div>
-            <Image src={'/svgs/logo.svg'} alt={'logo'} width={36} height={36} />
+            <Image src={'/svgs/logo.svg'} alt={'logo'} width={36} height={36} draggable="false" />
             <h3 className={cl.title}>Money Guard</h3>
         </div>
     );

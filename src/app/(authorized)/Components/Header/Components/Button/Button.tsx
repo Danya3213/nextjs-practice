@@ -10,7 +10,7 @@ export const Button = (): ReactNode => {
 
     return (
         <button className={cl.button} onClick={(): Promise<void> => logout((): void => {})}>
-            <Image src={"/svgs/exit.svg"} alt="exit" width={18} height={18}/>
+            <Image src={"/svgs/exit.svg"} alt="exit" width={18} height={18} draggable="false"/>
             <h4 className={cl.buttonText}>Exit</h4>
         </button>
     );

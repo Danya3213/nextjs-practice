@@ -18,7 +18,7 @@ export const Input = ({placeholder, img, value, onChange, onFocus, active, error
         <label className={
             error && active ? cl.labelError : cl.label
         }>
-            <Image src={img} alt="mail" width={24} height={24} />
+            <Image src={img} alt="mail" width={24} height={24} draggable="false" />
             <input
                 placeholder={placeholder}
                 value={value}
