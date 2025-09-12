@@ -6,6 +6,7 @@ import {UserInfoProvider} from "@Providers/userInfo.provider";
 import {AuthValueProvider} from "@notAuthPages/auth/Providers/AuthValue.provider";
 import {AuthGuardProvider} from "@/middlewares/auth.middleware";
 import {Preloader} from "@Components/Preloader/Preloader";
+import {Loading} from "@Components/Modals/Loading/Loading";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,6 +36,7 @@ export default function RootLayout({
                     <body>
                     {children}
                     <Preloader />
+                    <Loading/>
                     </body>
                 </AuthValueProvider>
     </AuthGuardProvider>

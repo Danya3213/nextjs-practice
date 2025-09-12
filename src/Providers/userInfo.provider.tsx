@@ -9,7 +9,12 @@ export const UserInfoProvider = ({children}: PropsWithChildren): ReactNode => {
     const [ name, setName ] = useState<string>('');
 
     return (
-        <UserContext.Provider value = {{isLoggedIn, setIsLoggedIn, name, setName}}>
+        <UserContext.Provider value = {{
+            isLoggedIn,
+            setIsLoggedIn,
+            name,
+            setName
+        }}>
             {children}
         </UserContext.Provider>
     )
