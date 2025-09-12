@@ -20,8 +20,17 @@ export const useTransactionService = (): ITransactionService => {
         });
     }
 
+    async function deleteTransaction(id: string): Promise<ITransaction | undefined> {
+        return serviceLayout<ITransaction | undefined>(async (): Promise<ITransaction | undefined> => {
+
+            const {data} = await authApi.delete<ITransaction | undefined>(`/del/${id}`);
+            return data;
+        });
+    }
+
 
     return  {
-        getTransactions
+        getTransactions,
+        deleteTransaction
     }
 }

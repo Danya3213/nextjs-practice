@@ -1,0 +1,68 @@
+.li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: 16px;
+  padding-left: 20px;
+}
+
+.content {
+
+  display: flex;
+  align-items: center;
+
+  &:last-of-type {
+    gap: 8px;
+  }
+}
+
+.text {
+  font-size: 14px;
+
+  &:first-of-type {
+    margin-right: 40px;
+  }
+
+  &:nth-of-type(2) {
+    margin-right: 67px;
+  }
+
+  &:nth-of-type(3) {
+    margin-right: 84px;
+  }
+
+  &:nth-of-type(4) {
+    margin-right: 132px;
+  }
+
+  &:last-of-type {
+    margin-right: 33px;
+  }
+}
+
+.sum {
+
+  @extend .text;
+  color: #FF868D;
+}
+
+.sumActive {
+  @extend .sum;
+  color: #FFB627;
+}
+
+.image {
+  cursor: pointer;
+}
+
+.button {
+
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 4px 12px;
+  text-transform: capitalize;
+  background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
+  box-shadow: 1px 9px 15px rgba(0, 0, 0, 0.2);
+}

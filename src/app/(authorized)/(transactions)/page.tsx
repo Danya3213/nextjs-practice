@@ -8,6 +8,7 @@ import {useTransaction} from "@authPages/hooks/useTransaction.hook";
 import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
 import type {ITransactionContext} from "@authPages/interfaces/transactionContext.interface";
 import type {ITransaction} from "@authPages/interfaces/transaction.interface";
+import {List} from "@authPages/(transactions)/Components/List/List";
 
 export default function Home() {
 
@@ -30,6 +31,7 @@ export default function Home() {
       <section>
           <div className={cl.container}>
               <Top />
+              <List/>
           </div>
       </section>
   );

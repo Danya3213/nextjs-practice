@@ -1,9 +1,10 @@
+import type {ECategory} from "@authPages/enums/category.enum";
+
 export interface ITransaction {
     date: string;
     type: boolean;
-    category: string;
+    category: ECategory;
     comment: string;
     sum: number;
-    userId: unknown;
-    _id: unknown;
+    _id: string;
 }
