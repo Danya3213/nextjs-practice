@@ -2,6 +2,6 @@ import type {AxiosResponse} from "axios";
 
 export interface IServiceLayout {
 
-    serviceLayout: (cb: () => Promise<void>) => Promise<void>,
+    serviceLayout: <T = void>(cb: () => Promise<T>) => Promise<T | undefined>,
     isResOk: (res: AxiosResponse | Response) => boolean,
 }

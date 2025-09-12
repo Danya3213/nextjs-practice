@@ -7,19 +7,17 @@ export function useServiceLayout (): IServiceLayout {
 
     const {setIsLoading}:IResponseContext = useResponse();
 
-    const serviceLayout = async (tryCallback: () => Promise<void>) => {
+    const serviceLayout = async <T = void>(tryCallback: () => Promise<T>): Promise<T | undefined> => {
 
         setIsLoading((prev: number) => (prev + 1))
 
         try {
 
-            await tryCallback();
+            return await tryCallback();
         } catch (err) {
-
         } finally {
 
             setIsLoading((prev: number) => (prev - 1))
-
         }
     }
 
