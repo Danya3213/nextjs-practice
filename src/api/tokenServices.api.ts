@@ -28,7 +28,7 @@ export function useTokenService (): ITokenService {
 
     const checkToken = async (): Promise<void> => {
 
-        setIsLoading(true);
+        setIsLoading((prev: number) => (prev + 1));
 
         try {
             const res = await authApi.get(`${authAPI}/check`);
@@ -45,7 +45,7 @@ export function useTokenService (): ITokenService {
             setIsLoggedIn(false);
             goToPage("/auth");
         } finally {
-            setIsLoading(false)
+            setIsLoading((prev: number) => (prev - 1))
         }
     };
 

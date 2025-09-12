@@ -11,7 +11,7 @@ export const Loading = (): ReactNode => {
     const {isLoading}: IResponseContext = useResponse();
 
     return (
-        <div className={isLoading ? cl.modalActive : cl.modal}>
+        <div className={+isLoading > 0 ? cl.modalActive : cl.modal}>
             <Image className={cl.img} src='/svgs/loading.svg' alt={''} width={30} height={30} />
         </div>
     )

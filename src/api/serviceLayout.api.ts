@@ -9,7 +9,7 @@ export function useServiceLayout (): IServiceLayout {
 
     const serviceLayout = async (tryCallback: () => Promise<void>) => {
 
-        setIsLoading(true);
+        setIsLoading((prev: number) => (prev + 1))
 
         try {
 
@@ -18,7 +18,8 @@ export function useServiceLayout (): IServiceLayout {
 
         } finally {
 
-            setIsLoading(false);
+            setIsLoading((prev: number) => (prev - 1))
+
         }
     }
 

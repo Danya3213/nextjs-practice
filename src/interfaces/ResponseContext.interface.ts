@@ -1,4 +1,6 @@
+import type {Dispatch, SetStateAction} from "react";
+
 export interface IResponseContext {
-    isLoading: boolean;
-    setIsLoading: (isLoading: boolean) => void;
+    isLoading: number;
+    setIsLoading: Dispatch<SetStateAction<number>>;
 }

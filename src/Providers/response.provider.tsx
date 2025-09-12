@@ -5,7 +5,7 @@ import {ResponseContext} from "@store/response.store";
 
 export const ResponseProvider = ({children}: PropsWithChildren): ReactNode => {
 
-    const [ isLoading, setIsLoading ] = useState<boolean>(false);
+    const [ isLoading, setIsLoading ] = useState<number>(0);
 
     return (
         <ResponseContext.Provider
