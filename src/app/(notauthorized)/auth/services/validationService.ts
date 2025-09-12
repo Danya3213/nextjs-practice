@@ -1,4 +1,4 @@
-export const validateName = (name: string): RegExpMatchArray | null => {
+export const validateUsername = (name: string): RegExpMatchArray | null => {
     if (!name) return null;
     if (name.includes(' ')) return null;
     return name.match(/^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]{4,20}(?<![_.])$/);

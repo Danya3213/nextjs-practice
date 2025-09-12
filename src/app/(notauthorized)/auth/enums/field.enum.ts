@@ -1,5 +1,5 @@
 export enum EField {
-    name = 'name',
+    username = 'username',
     email = 'email',
     password = 'password',
     confirmPassword = 'confirmPassword'

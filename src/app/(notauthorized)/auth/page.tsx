@@ -1,12 +1,13 @@
 "use client"
 
-import {useEffect, useState} from "react";
+import {type ReactNode, useEffect, useState} from "react";
 import cl from './page.module.scss'
 import {useInputService} from "@notAuthPages/auth/services/inputService";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import {ModalLayout} from "@notAuthPages/auth/ModalLayout/ModalLayout";
+import {useTokenService} from "@api/tokenServices";
 
-export default function Page () {
+export default function Page (): ReactNode {
 
     const [ haveAccount, setHaveAccount ] = useState<boolean>(true);
 

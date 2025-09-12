@@ -1,34 +1,31 @@
 "use client";
-import {type PropsWithChildren, useState} from "react";
-import { useEffect } from "react";
-import { useTokenService } from "@api/tokenServices";
-import { useRouter } from "next/navigation";
+import {type PropsWithChildren, type ReactNode, useEffect, useState} from "react";
+import {useTokenService} from "@api/tokenServices";
+import {useUserInfo} from "@hooks/useUserInfo.hook";
+import {useRouter} from "next/navigation";
+import type {IUserContext} from "@/interfaces/UserContext";
+import {Loading} from "@Components/Modals/Loading/Loading";
 
-export const AuthMiddleware = ({ children, authPage = false}: PropsWithChildren<{
-    authPage?: boolean;
-}>) => {
-    const { checkToken } = useTokenService();
+export const AuthGuardProvider = ({children}: PropsWithChildren): ReactNode | null => {
+
+    const {checkToken} = useTokenService();
+    const {isLoggedIn}: IUserContext = useUserInfo();
     const router = useRouter();
-    const [ returned, setReturned ] = useState(<></>);
+    const [ returned, setReturned ] = useState<ReactNode | null>(<body><Loading/></body>);
 
     useEffect(() => {
-        const validate = async () => {
-            const ok = await checkToken();
-            console.log(ok)
-            if (authPage && !ok) {
-                console.log("1")
-                router.push("/auth");
-                setReturned(authPage ? children : <></>);
-            }
-
-            if (ok && !authPage) {
-                console.log("2")
-                router.push("/");
-                setReturned(!authPage ? children : <></>);
-            }
-        };
-        validate();
+        checkToken();
     }, []);
 
-    return <>{returned}</>;
+    useEffect(() => {
+        if (isLoggedIn) {
+            router.replace("/");
+            setReturned(children);
+        } else {
+            router.replace("/auth");
+            setReturned(children);
+        }
+    }, [isLoggedIn, router]);
+
+    return returned;
 };

@@ -1,14 +1,22 @@
+"use client"
+
 import {useUserInfo} from "@hooks/useUserInfo.hook";
 import axios, {type AxiosInstance} from "axios";
 import {useServiceLayout} from "./serviceLayout";
+import {useRouter} from "next/navigation";
 
 export function useTokenService () {
 
+    const router = useRouter();
+    const goToPage = (v: string): void => {
+        router.replace(v);
+    };
     const {setIsLoggedIn, setName} = useUserInfo();
     const authAPI = `${process.env.NEXT_PUBLIC_NEXT_URL}/auth`;
     const {isResOk} = useServiceLayout();
     const authApi: AxiosInstance = axios.create({
         baseURL: `${process.env.NEXT_PUBLIC_NEXT_URL}/auth`,
+        withCredentials: true,
     })
 
     const checkToken = async () => {
@@ -17,18 +25,15 @@ export function useTokenService () {
 
             if (isResOk(res)) {
                 setIsLoggedIn(true);
-                // goToPage("");
+                goToPage("/");
                 setName(res.data);
-                return true;
             } else {
-                // goToPage("/auth");
+                goToPage("/auth");
                 setIsLoggedIn(false);
-                return false;
             }
         } catch (error) {
             setIsLoggedIn(false);
-            // goToPage("/auth");
-            return false;
+            goToPage("/auth");
         }
     };
 

@@ -1,10 +1,10 @@
+"use client"
+
 import './Preloader.scss'
 import {useEffect, useState} from "react";
-import {useUserInfo} from "../Contexts/UserInfo/userInfo.provider.tsx";
 
 export const Preloader = () => {
 
-    const {firstJoin, setFirstJoin} = useUserInfo();
     const [preloaderValue, setPreloaderValue] = useState(0);
     const [hidden, setHidden] = useState(false);
     const [animStatus, setAnimStatus] = useState(false);

@@ -4,6 +4,8 @@ import '../styles/index.scss';
 import {ResponseProvider} from "@Providers/response.provider";
 import {UserInfoProvider} from "@Providers/userInfo.provider";
 import {AuthValueProvider} from "@notAuthPages/auth/Providers/AuthValue.provider";
+import {AuthGuardProvider} from "@/middlewares/auth.middleware";
+import {Preloader} from "@Components/Preloader/Preloader";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,17 +25,21 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+
   return (
     <html lang="en">
-        <ResponseProvider>
-            <UserInfoProvider>
+    <ResponseProvider>
+    <UserInfoProvider>
+    <AuthGuardProvider>
                 <AuthValueProvider>
                     <body>
                     {children}
+                    <Preloader />
                     </body>
                 </AuthValueProvider>
-            </UserInfoProvider>
-        </ResponseProvider>
+    </AuthGuardProvider>
+    </UserInfoProvider>
+    </ResponseProvider>
     </html>
   );
 }

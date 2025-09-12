@@ -1,11 +1,12 @@
 import {Input} from "../../../Layout/Input/Input";
-import {validateName} from "@notAuthPages/auth/services/validationService";
+import {validateUsername} from "@notAuthPages/auth/services/validationService";
 import {useInputValues} from "@notAuthPages/auth/services/inputValues";
 import {EField} from "@notAuthPages/auth/enums/field.enum";
 import {ETypes} from "@notAuthPages/auth/enums/types.enum";
+import type {IInputValues} from "@notAuthPages/auth/interfaces/inputValues.interface";
 
 
-export const NameInput = () => {
+export const UsernameInput = () => {
 
     const {
         value,
@@ -14,12 +15,12 @@ export const NameInput = () => {
         setActive,
         error,
         setError,
-    } = useInputValues(EField.name);
+    }: IInputValues = useInputValues(EField.username);
 
     return (
         <Input placeholder={"Name"} img={'/svgs/user.svg'} value={value} onChange={(e) => {
             setValue(e.target.value);
-            setError(!validateName(e.target.value));
+            setError(!validateUsername(e.target.value));
         }} onFocus={() => setActive(true)} active={active} error={error} type={ETypes.input} />
     );
 };

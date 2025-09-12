@@ -1,3 +1,5 @@
+"use client"
+
 import axios, {type AxiosInstance} from "axios";
 import {useRouter} from "next/navigation";
 import {useUserInfo} from "@hooks/useUserInfo.hook";
@@ -9,12 +11,14 @@ import type {AuthValuesContextI} from "@notAuthPages/auth/interfaces/authContext
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import type {IServiceLayout} from "@/interfaces/serviceLayout.interface";
 import type {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
-import type {IAuthService} from "@notAuthPages/auth/interfaces/AuthService.interface";
+import type {IAuthService} from "@notAuthPages/auth/interfaces/AuthService.interface"
+import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
 
 export function useAuthService (): IAuthService {
 
     const authApi: AxiosInstance = axios.create({
         baseURL: `${process.env.NEXT_PUBLIC_NEXT_URL}/auth`,
+        withCredentials: true,
     })
 
     const {setIsLoggedIn, setName}:IUserContext = useUserInfo();
@@ -31,9 +35,9 @@ export function useAuthService (): IAuthService {
 
         await serviceLayout(async () => {
 
-            const { name, email, password } = values;
-            const endpoint = haveAccount ? "/login" : "/reg";
-            const body = haveAccount ? { email, password } : { email, password, username: name.toLowerCase() };
+            const { username, email, password }: inputsI<string> = values;
+            const endpoint: "/login" | "/reg" = haveAccount ? "/login" : "/reg";
+            const body = haveAccount ? { email, password } : { email, password, username: username.toLowerCase() };
 
             await authApi.post(endpoint, body).then((res) => {
                 if (isResOk(res)) {
