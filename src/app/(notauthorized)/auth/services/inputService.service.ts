@@ -1,5 +1,5 @@
-import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues";
-import {createFields} from "@notAuthPages/auth/hooks/useFields";
+import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues.hook";
+import {createFields} from "@notAuthPages/auth/hooks/useFields.hook";
 import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
 import type {IAuthValuesContext} from "@notAuthPages/auth/interfaces/authContext.interface";
 import {EField} from "@notAuthPages/auth/enums/field.enum";

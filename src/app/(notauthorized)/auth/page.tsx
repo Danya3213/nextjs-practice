@@ -2,7 +2,7 @@
 
 import {type ReactNode, useEffect, useState} from "react";
 import cl from './page.module.scss'
-import {useInputService} from "@notAuthPages/auth/services/inputService";
+import {useInputService} from "@notAuthPages/auth/services/inputService.service";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import {ModalLayout} from "@notAuthPages/auth/ModalLayout/ModalLayout";
 

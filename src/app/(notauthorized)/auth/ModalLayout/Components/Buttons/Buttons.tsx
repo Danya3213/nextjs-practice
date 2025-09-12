@@ -1,5 +1,5 @@
 import cl from "./buttons.module.scss";
-import {useButtonService} from "@notAuthPages/auth/services/buttonService";
+import {useButtonService} from "@notAuthPages/auth/services/buttonService.service";
 import {GradientButton} from "./Components/GradientButton/GradientButton";
 import {Button} from "./Components/Button/Button";
 import type {Dispatch, SetStateAction} from "react";

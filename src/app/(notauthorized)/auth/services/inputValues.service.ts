@@ -1,4 +1,4 @@
-import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues";
+import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues.hook";
 import type {EField} from "@notAuthPages/auth/enums/field.enum";
 import type {Dispatch, SetStateAction} from "react";
 import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";

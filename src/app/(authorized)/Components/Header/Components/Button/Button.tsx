@@ -1,5 +1,5 @@
 import cl from "./button.module.scss";
-import {useAuthService} from "@api/authServices";
+import {useAuthService} from "@api/authServices.api";
 import type {ReactNode} from "react";
 import Image from "next/image";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface";

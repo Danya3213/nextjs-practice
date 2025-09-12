@@ -1,6 +1,6 @@
 "use client";
 import {type PropsWithChildren, type ReactNode, useEffect, useState} from "react";
-import {useTokenService} from "@api/tokenServices";
+import {useTokenService} from "@api/tokenServices.api";
 import {useUserInfo} from "@hooks/useUserInfo.hook";
 import {useRouter} from "next/navigation";
 import type {IUserContext} from "@/interfaces/UserContext.interface";

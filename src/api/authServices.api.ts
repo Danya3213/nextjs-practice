@@ -3,9 +3,9 @@
 import axios, {type AxiosInstance} from "axios";
 import {useRouter} from "next/navigation";
 import {useUserInfo} from "@hooks/useUserInfo.hook";
-import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues";
-import {useInputService} from "@notAuthPages/auth/services/inputService";
-import {useServiceLayout} from "./serviceLayout";
+import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues.hook";
+import {useInputService} from "@notAuthPages/auth/services/inputService.service";
+import {useServiceLayout} from "./serviceLayout.api";
 import type {IUserContext} from "@/interfaces/UserContext.interface";
 import type {IAuthValuesContext} from "@notAuthPages/auth/interfaces/authContext.interface";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";

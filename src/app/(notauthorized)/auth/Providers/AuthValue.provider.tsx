@@ -2,8 +2,8 @@
 
 import {type PropsWithChildren, type ReactNode, useState} from "react";
 import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
-import {createFields} from "@notAuthPages/auth/hooks/useFields";
-import {AuthValues} from "@notAuthPages/auth/store/authValues";
+import {createFields} from "@notAuthPages/auth/hooks/useFields.hook";
+import {AuthValues} from "@notAuthPages/auth/store/authValues.store";
 
 export const AuthValueProvider = ({children}: Readonly<PropsWithChildren>): ReactNode => {
 

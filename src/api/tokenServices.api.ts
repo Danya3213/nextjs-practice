@@ -2,7 +2,7 @@
 
 import {useUserInfo} from "@hooks/useUserInfo.hook";
 import axios, {type AxiosInstance} from "axios";
-import {useServiceLayout} from "./serviceLayout";
+import {useServiceLayout} from "./serviceLayout.api";
 import {useRouter} from "next/navigation";
 import {useResponse} from "@hooks/useResponse.hook";
 import type {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";

@@ -1,6 +1,6 @@
 import {Input} from "../../../Layout/Input/Input";
-import {validatePassword} from "@notAuthPages/auth/services/validationService";
-import {useInputValues} from "@notAuthPages/auth/services/inputValues";
+import {validatePassword} from "@notAuthPages/auth/services/validationService.service";
+import {useInputValues} from "@notAuthPages/auth/services/inputValues.service";
 import {EField} from "@notAuthPages/auth/enums/field.enum";
 import {ETypes} from "@notAuthPages/auth/enums/types.enum";
 import type {IInputValues} from "@notAuthPages/auth/interfaces/inputValues.interface";

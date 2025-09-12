@@ -1,5 +1,5 @@
-import {useInputService} from "@notAuthPages/auth/services/inputService";
-import {useAuthService} from "@/api/authServices";
+import {useInputService} from "@notAuthPages/auth/services/inputService.service";
+import {useAuthService} from "@api/authServices.api";
 import type {IButtonService} from "@notAuthPages/auth/interfaces/buttonService.interface";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface";
