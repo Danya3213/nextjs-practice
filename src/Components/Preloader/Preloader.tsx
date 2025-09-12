@@ -1,26 +1,28 @@
 "use client"
 
 import './Preloader.scss'
-import {useEffect, useState} from "react";
+import {type ReactNode, useEffect, useState} from "react";
 
-export const Preloader = () => {
+export const Preloader = (): ReactNode => {
 
-    const [preloaderValue, setPreloaderValue] = useState(0);
-    const [hidden, setHidden] = useState(false);
-    const [animStatus, setAnimStatus] = useState(false);
+    const [preloaderValue, setPreloaderValue] = useState<number>(0);
+    const [hidden, setHidden] = useState<boolean>(false);
+    const [animStatus, setAnimStatus] = useState<boolean>(false);
 
     useEffect(() => {
-        const handlePageLoad = () => {
+        const handlePageLoad = (): () => void => {
 
-            const timeout1 = setTimeout(() => {
+            type timeOutId = ReturnType<typeof setTimeout>;
+
+            const timeout1: timeOutId = setTimeout((): () => void => {
                 setHidden(true);
-                const timeout2 = setTimeout(() => {
+                const timeout2: timeOutId = setTimeout(() => {
                     // setDOMReady(true);
                 }, 1000);
-                return () => clearTimeout(timeout2);
+                return (): void => clearTimeout(timeout2);
             }, 2000);
 
-            return () => clearTimeout(timeout1);
+            return (): void => clearTimeout(timeout1);
         };
 
         if (document.readyState === "complete") {
@@ -31,14 +33,17 @@ export const Preloader = () => {
             window.addEventListener("load", handlePageLoad);
         }
 
-        return () => {
+        return (): void => {
             window.removeEventListener("load", handlePageLoad);
         };
     }, []);
 
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
+    useEffect((): () => void => {
+
+        type intervalId = ReturnType<typeof setInterval>;
+
+        const intervalId: intervalId = setInterval((): void => {
             setPreloaderValue(prev => {
                 if (prev < 100) {
                     return prev + 1;
@@ -49,10 +54,10 @@ export const Preloader = () => {
             });
         }, 1);
 
-        return () => clearInterval(intervalId);
+        return (): void => clearInterval(intervalId);
     }, []);
 
-    useEffect(() => {
+    useEffect((): void => {
         if (preloaderValue === 90) {
             setAnimStatus(true);
         }

@@ -1,7 +1,7 @@
 import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues";
 import {createFields} from "@notAuthPages/auth/hooks/useFields";
-import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
-import type {AuthValuesContextI} from "@notAuthPages/auth/interfaces/authContext.interface";
+import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
+import type {IAuthValuesContext} from "@notAuthPages/auth/interfaces/authContext.interface";
 import {EField} from "@notAuthPages/auth/enums/field.enum";
 import {loginFields} from "@notAuthPages/auth/constants/loginFields";
 import {regFields} from "@notAuthPages/auth/constants/regFields";
@@ -9,9 +9,9 @@ import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.int
 
 export const useInputService = (): IInputService => {
 
-    const {active, errors, setValues, setActive, setErrors}: AuthValuesContextI = useAuthValuesContext();
+    const {active, errors, setValues, setActive, setErrors}: IAuthValuesContext = useAuthValuesContext();
 
-    const checkFields = (f: EField[], obj: inputsI<boolean>, v: boolean): boolean => {
+    const checkFields = (f: EField[], obj: IInputs<boolean>, v: boolean): boolean => {
 
         return f.every((k: EField) => obj[k] === v);
     }
@@ -39,10 +39,10 @@ export const useInputService = (): IInputService => {
 
     const activateAll = (): void => {
 
-        const allTrue: inputsI<true> = Object.values(EField).reduce((acc, key) => {
+        const allTrue: IInputs<true> = Object.values(EField).reduce((acc, key) => {
             acc[key] = true;
             return acc;
-        }, {} as inputsI<true>);
+        }, {} as IInputs<true>);
 
 
         setActive(allTrue);

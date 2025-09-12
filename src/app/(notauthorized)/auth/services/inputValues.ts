@@ -1,15 +1,15 @@
 import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues";
 import type {EField} from "@notAuthPages/auth/enums/field.enum";
 import type {Dispatch, SetStateAction} from "react";
-import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
-import type {AuthValuesContextI} from "@notAuthPages/auth/interfaces/authContext.interface";
+import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
+import type {IAuthValuesContext} from "@notAuthPages/auth/interfaces/authContext.interface";
 import type {IInputValues} from "@notAuthPages/auth/interfaces/inputValues.interface";
 
 export const useInputValues = (key: EField): IInputValues => {
 
-    const handleChangeState = <T>(hook: Dispatch<SetStateAction<inputsI<T>>>, value: T) => {
+    const handleChangeState = <T>(hook: Dispatch<SetStateAction<IInputs<T>>>, value: T) => {
 
-        hook((prev:inputsI<T>) => ({
+        hook((prev:IInputs<T>) => ({
             ...prev,
             [key]: value
         }))
@@ -22,7 +22,7 @@ export const useInputValues = (key: EField): IInputValues => {
         setActive,
         errors,
         setErrors
-    }: AuthValuesContextI = useAuthValuesContext();
+    }: IAuthValuesContext = useAuthValuesContext();
 
     const setValueI = (v: string) => handleChangeState<string>(setValues, v);
     const setActiveI = (v: boolean) => handleChangeState<boolean>(setActive, v);

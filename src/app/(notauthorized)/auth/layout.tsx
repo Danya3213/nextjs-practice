@@ -1,7 +1,7 @@
-import type {PropsWithChildren} from "react";
+import type {PropsWithChildren, ReactNode} from "react";
 import {AuthValueProvider} from "@notAuthPages/auth/Providers/AuthValue.provider";
 
-export default function AuthLayout({children}: PropsWithChildren) {
+export default function AuthLayout({children}: PropsWithChildren): ReactNode {
     return (
         <AuthValueProvider>
             {children}

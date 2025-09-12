@@ -1,21 +1,21 @@
 "use client"
 
-import {type PropsWithChildren, useState} from "react";
-import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
+import {type PropsWithChildren, type ReactNode, useState} from "react";
+import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
 import {createFields} from "@notAuthPages/auth/hooks/useFields";
 import {AuthValues} from "@notAuthPages/auth/store/authValues";
 
-export const AuthValueProvider = ({children}: Readonly<PropsWithChildren>) => {
+export const AuthValueProvider = ({children}: Readonly<PropsWithChildren>): ReactNode => {
 
-    const [values, setValues] = useState<inputsI<string>>({
+    const [values, setValues] = useState<IInputs<string>>({
         ...createFields<string>(""),
     });
 
-    const [active, setActive] = useState<inputsI<boolean>>({
+    const [active, setActive] = useState<IInputs<boolean>>({
         ...createFields<boolean>(false),
     });
 
-    const [errors, setErrors] = useState<inputsI<boolean>>({
+    const [errors, setErrors] = useState<IInputs<boolean>>({
         ...createFields<boolean>(true),
     });
 

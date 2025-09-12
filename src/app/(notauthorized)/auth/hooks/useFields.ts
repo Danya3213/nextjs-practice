@@ -1,7 +1,7 @@
-import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
+import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
 import {regFields} from "@notAuthPages/auth/constants/regFields";
 
-export function createFields<T>(value: T): inputsI<T> {
+export function createFields<T>(value: T): IInputs<T> {
 
     return regFields.reduce((acc, f) => {
 
@@ -9,5 +9,5 @@ export function createFields<T>(value: T): inputsI<T> {
             ...acc,
             [f]: value
         }
-    }, {} as inputsI<T>);
+    }, {} as IInputs<T>);
 }

@@ -2,7 +2,7 @@ import {useInputService} from "@notAuthPages/auth/services/inputService";
 import {useAuthService} from "@/api/authServices";
 import type {IButtonService} from "@notAuthPages/auth/interfaces/buttonService.interface";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
-import type {IAuthService} from "@notAuthPages/auth/interfaces/AuthService.interface";
+import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface";
 
 export function useButtonService():IButtonService {
 
@@ -22,8 +22,8 @@ export function useButtonService():IButtonService {
 
     async function handleLogin(): Promise<void> {
 
-        await authLayout(true, async () => {
-            await login(() => {
+        await authLayout(true, async (): Promise<void> => {
+            await login((): void => {
                 console.log('login')
             })
         });
@@ -31,8 +31,8 @@ export function useButtonService():IButtonService {
 
     async function handleReg(): Promise<void> {
 
-        await authLayout(false, async () => {
-            await registration(() => {
+        await authLayout(false, async (): Promise<void> => {
+            await registration((): void => {
                 console.log('registration')
             });
         });

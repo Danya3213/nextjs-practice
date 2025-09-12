@@ -1,11 +1,11 @@
 import {useResponse} from "@hooks/useResponse.hook";
-import type {ResponseContextI} from "@/interfaces/IResponseContext";
+import type {IResponseContext} from "@/interfaces/ResponseContext.interface";
 import type {AxiosResponse} from "axios";
 import type {IServiceLayout} from "@/interfaces/serviceLayout.interface";
 
 export function useServiceLayout (): IServiceLayout {
 
-    const {setIsLoading}:ResponseContextI = useResponse();
+    const {setIsLoading}:IResponseContext = useResponse();
 
     const serviceLayout = async (tryCallback: () => Promise<void>) => {
 

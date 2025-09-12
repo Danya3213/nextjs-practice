@@ -5,7 +5,6 @@ import cl from './page.module.scss'
 import {useInputService} from "@notAuthPages/auth/services/inputService";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import {ModalLayout} from "@notAuthPages/auth/ModalLayout/ModalLayout";
-import {useTokenService} from "@api/tokenServices";
 
 export default function Page (): ReactNode {
 
@@ -13,15 +12,17 @@ export default function Page (): ReactNode {
 
     const {resetAll}: IInputService = useInputService();
 
-    useEffect(() => {
+    useEffect((): () => void => {
 
-        const timeout = setTimeout(() => {
+        type setTimeoutId = ReturnType<typeof setTimeout>;
+
+        const timeout: setTimeoutId = setTimeout((): void => {
 
             resetAll();
 
         }, 100);
 
-        return () => clearTimeout(timeout);
+        return (): void => clearTimeout(timeout);
 
     }, [haveAccount]);
 

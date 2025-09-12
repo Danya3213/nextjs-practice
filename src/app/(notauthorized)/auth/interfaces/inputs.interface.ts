@@ -1,6 +1,6 @@
 import {EField} from "@notAuthPages/auth/enums/field.enum";
 
-export interface inputsI<T> {
+export interface IInputs<T> {
     [EField.username]: T,
     [EField.email]: T,
     [EField.password]: T,

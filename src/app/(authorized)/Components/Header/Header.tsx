@@ -4,8 +4,9 @@ import {Logo} from "./Components/Logo/Logo";
 import {Name} from "./Components/Name/Name";
 import {Button} from "./Components/Button/Button";
 import {Border} from "./Components/Border/Border";
+import type {ReactNode} from "react";
 
-export const Header = () => {
+export const Header = (): ReactNode => {
 
     return (
         <header className={cl.header}>

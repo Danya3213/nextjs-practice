@@ -1,13 +1,13 @@
-import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
+import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
 import type {Dispatch, SetStateAction} from "react";
 
-export interface AuthValuesContextI {
-    values: inputsI<string>;
-    setValues: Dispatch<SetStateAction<inputsI<string>>>;
+export interface IAuthValuesContext {
+    values: IInputs<string>;
+    setValues: Dispatch<SetStateAction<IInputs<string>>>;
 
-    active: inputsI<boolean>;
-    setActive: Dispatch<SetStateAction<inputsI<boolean>>>;
+    active: IInputs<boolean>;
+    setActive: Dispatch<SetStateAction<IInputs<boolean>>>;
 
-    errors: inputsI<boolean>;
-    setErrors: Dispatch<SetStateAction<inputsI<boolean>>>;
+    errors: IInputs<boolean>;
+    setErrors: Dispatch<SetStateAction<IInputs<boolean>>>;
 }

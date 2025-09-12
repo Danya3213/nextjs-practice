@@ -1,5 +1,5 @@
 import type {Dispatch, SetStateAction} from "react";
-import type {inputsI} from "@notAuthPages/auth/interfaces/inputs.interface";
+import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
 
 export interface IInputValues {
     value: string;
@@ -8,5 +8,5 @@ export interface IInputValues {
     setValue: (v: string) => void;
     setActive: (v: boolean) => void;
     setError: (v: boolean) => void;
-    handleChangeState: <T>(hook: Dispatch<SetStateAction<inputsI<T>>>, value: T) => void
+    handleChangeState: <T>(hook: Dispatch<SetStateAction<IInputs<T>>>, value: T) => void
 }

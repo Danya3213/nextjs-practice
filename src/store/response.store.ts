@@ -1,7 +1,7 @@
 "use client"
 
 import {createContext} from "react";
-import type {ResponseContextI} from "@/interfaces/IResponseContext";
+import type {IResponseContext} from "@/interfaces/ResponseContext.interface";
 
 
-export const ResponseContext = createContext<ResponseContextI | null>(null);
+export const ResponseContext = createContext<IResponseContext | null>(null);
