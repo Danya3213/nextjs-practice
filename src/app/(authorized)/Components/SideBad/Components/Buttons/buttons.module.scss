@@ -1,0 +1,22 @@
+.buttonContainer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding-inline: 16px;
+}
+
+.button {
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-transform: none;
+}
+
+.buttonActive {
+
+  @extend .button;
+  font-weight: bold;
+}

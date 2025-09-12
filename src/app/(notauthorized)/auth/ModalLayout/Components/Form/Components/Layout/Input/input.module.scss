@@ -1,0 +1,22 @@
+.label {
+
+  width: 410px;
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #FFFFFF66;
+  transition: all .2s ease-in-out;
+
+  > input {
+
+    width: 100%;
+    margin-right: 20px;
+  }
+}
+
+.labelError {
+
+  @extend .label;
+  border-color: #FF868D;
+}

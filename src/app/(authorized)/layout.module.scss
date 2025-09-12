@@ -1,0 +1,13 @@
+.main {
+
+  background-color: #101010;
+}
+
+.container {
+
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  height: calc(100vh - 80px);
+}

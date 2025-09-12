@@ -1,0 +1,62 @@
+@keyframes show {
+
+  from {
+
+    opacity: 0;
+  }
+
+  to {
+
+    opacity: 1;
+  }
+}
+
+.main {
+
+  width: 100vw;
+  height: 100vh;
+
+  &::after, &::before {
+
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all ease-in-out 1s;
+  }
+
+  &::after {
+
+    background-image: url("/backgrounds/Coins.png");
+    animation: show 1s ease-in-out;
+    z-index: -2;
+    opacity: 1;
+  }
+
+  &::before {
+
+    background-image: url("/backgrounds/Money.png");
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+.mainAlt {
+
+  @extend .main;
+
+  &::after {
+
+    opacity: 0;
+  }
+
+  &::before {
+
+    opacity: 1;
+  }
+}

@@ -1,0 +1,7 @@
+.infoList {
+
+  display: grid;
+  grid-template-columns: repeat(3, 42px);
+  grid-column-gap: 75px;
+  margin-left: 52px;
+}

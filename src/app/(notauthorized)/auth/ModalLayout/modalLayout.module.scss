@@ -1,0 +1,55 @@
+.innerLogin {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(-150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 52px;
+  box-shadow: 0 4px 60px 0 #00000040;
+  padding: 80px 62px;
+  border-radius: 8px;
+  background-color: #FFFFFF1A;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 1s ease-in-out, opacity .4s ease-in-out;
+
+  &::after {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#2F15B0BA, #652392);
+    filter: blur(400px);
+    transition: all .2s ease-in-out;
+  }
+}
+
+.innerLoginActive {
+
+  @extend .innerLogin;
+  transform: translate(-50%, -50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.innerReg {
+
+  @extend .innerLogin;
+  transform: translate(-50%, -50%) translateY(-100px);
+  gap: 40px;
+}
+
+.innerRegActive {
+
+  @extend .innerReg;
+  transform: translate(-50%, -50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}

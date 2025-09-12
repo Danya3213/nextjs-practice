@@ -1,0 +1,7 @@
+@use '@/styles/placeholders' as *;
+
+.buttonGradient {
+
+  @extend %buttonGradient;
+  width: 100%;
+}

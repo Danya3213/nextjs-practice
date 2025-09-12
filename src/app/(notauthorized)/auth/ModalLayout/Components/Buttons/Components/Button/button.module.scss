@@ -1,0 +1,7 @@
+@use '@/styles/placeholders' as *;
+
+.button {
+
+  @extend %button;
+  width: 100%;
+}

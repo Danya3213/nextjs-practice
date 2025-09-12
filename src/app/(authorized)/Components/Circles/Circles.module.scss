@@ -1,0 +1,67 @@
+.circleContainer {
+
+  width: 1248px;
+  height: 100%;
+  background-color: #121115;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(100px);
+}
+
+.circle {
+
+  position: absolute;
+  filter: blur(200px);
+
+  &:nth-of-type(1) {
+
+    width: 760px;
+    height: 766px;
+    left: -196px;
+    top: 269px;
+
+    background: radial-gradient(#341FA0 46.11%, #652392 63.65%);
+  }
+
+  &:nth-of-type(2) {
+
+    width: 363px;
+    height: 366.11px;
+    left: 1129px;
+    top: 151.43px;
+
+    background: #302E8E;
+  }
+
+  &:nth-of-type(3) {
+
+    width: 739px;
+    height: 745px;
+    left: -223px;
+    top: -164px;
+
+    background: radial-gradient(rgba(109, 84, 235, 0.6) 28.31%, rgba(101, 35, 146, 0.6) 66.76%);
+  }
+
+  &:nth-of-type(4) {
+
+    width: 330px;
+    height: 333px;
+    left: 679px;
+    top: 697px;
+
+    background: #6D1C77;
+  }
+
+  &:nth-of-type(5) {
+
+    width: 893px;
+    height: 901px;
+    left: 698px;
+    top: 277px;
+
+    background: radial-gradient(rgba(109, 84, 235, 0.6) 28.31%, rgba(101, 35, 146, 0.6) 66.76%);
+  }
+}
