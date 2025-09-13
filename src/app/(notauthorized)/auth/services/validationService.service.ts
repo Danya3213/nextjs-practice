@@ -13,7 +13,7 @@ export const validateEmail = (email: string): RegExpMatchArray | null => {
 
 export const validatePassword = (password: string): boolean => {
     if (!password || password.trim() === '') return false;
-    return password.length >= 8 && /\d/.test(password);
+    return password.length >= 8 && /\d/.test(password) && !/\s/.test(password);
 };
 
 export const validateConfirmPassword = (confirmPassword: string, password: string): boolean => {

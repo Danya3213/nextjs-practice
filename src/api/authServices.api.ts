@@ -43,7 +43,7 @@ export function useAuthService (): IAuthService {
                 [EField.username]?: string,
                 [EField.email]: string,
                 [EField.password]: string,
-            } = haveAccount ? { email, password } : { email, password, username: username.toLowerCase() };
+            } = haveAccount ? { email: email.trim(), password: password.trim() } : { email: email.trim(), password: password.trim(), username: username.trim().toLowerCase() };
 
             await authApi.post(endpoint, body).then((res) => {
                 if (isResOk(res)) {

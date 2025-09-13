@@ -4,7 +4,7 @@ import {useInputValues} from "@notAuthPages/auth/services/inputValues.service";
 import {EField} from "@notAuthPages/auth/enums/field.enum";
 import {ETypes} from "@notAuthPages/auth/enums/types.enum";
 import type {IInputValues} from "@notAuthPages/auth/interfaces/inputValues.interface";
-
+import {useEffect} from "react";
 
 export const ConfirmPasswordInput = () => {
 
@@ -20,6 +20,10 @@ export const ConfirmPasswordInput = () => {
     const {
         value: passwordValue,
     }: IInputValues = useInputValues(EField.password);
+
+    useEffect(() => {
+        setError(!validateConfirmPassword(value, passwordValue));
+    }, [passwordValue]);
 
     return (
         <Input placeholder={"Confirm password"} img={'/svgs/lock.svg'} value={value} onChange={(e) => {
