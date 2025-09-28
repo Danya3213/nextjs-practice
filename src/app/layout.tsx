@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import type {ReactElement} from "react";
+import type {ReactNode} from "react";
 import '../styles/index.scss';
 import {Loading} from "@Components/Modals/Loading/Loading";
 import {ResponseProvider} from "@Providers/response.provider";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
                                        children,
                                    }: Readonly<{
-    children: ReactElement;
+    children: ReactNode;
 }>) {
 
     return (
