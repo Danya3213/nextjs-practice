@@ -1,27 +1,44 @@
 "use client"
 
 import cl from './list.module.scss'
-import {ListItem} from "@authPages/(transactions)/Components/ListItem/ListItem";
+import {ListItem} from "./ListItem/ListItem";
 import {useTransactionService} from "@authPages/api/transactionService.api";
-import {type ReactNode, useEffect, useState} from "react";
+import {type ReactElement, useEffect, useState} from "react";
 import type {ITransaction} from "@authPages/interfaces/transaction.interface";
 import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
+// import {io, Socket} from 'socket.io-client';
 
-export const List = (): ReactNode => {
+// const socket = io(`${process.env.NEXT_PUBLIC_NEST_URL}/transactions`, {
+//     withCredentials: true,
+//     transports: ["websocket"],
+// });
 
-    const {getTransactions, deleteTransaction}: ITransactionService = useTransactionService();
+// const socket = io(`wss://localhost:4200/api/transactions`, {
+//     withCredentials: true,
+//     transports: ["websocket"],
+// });
+
+export const List = (): ReactElement => {
+
+    const {deleteTransaction}: ITransactionService = useTransactionService();
     const [ transactions, setTransactions ] = useState<ITransaction[]>([]);
 
-    const getTransaction = async ():Promise<void> => {
-
-        const data: ITransaction[] | undefined = await getTransactions();
-
-        if (data === undefined) {
-            setTransactions([]);
-            return;
-        }
-
-        setTransactions(data);
+    const getTransaction = async (): Promise<void> => {
+    //
+    //     socket.on("connect", () => {
+    //         devConsole.log(socket.id)
+    //         socket.emit("transactions");
+    //     })
+    //
+    //     socket.on("transactions", (data) => {
+    //
+    //         devConsole.log("Оновлений масив:", data);
+    //         setTransactions(data);
+    //     });
+    //
+    //     return (): void => {
+    //         socket.off("transactions");
+    //     };
     }
 
     const handleDeleteTransaction = async (id: string): Promise<void> => {
@@ -32,7 +49,7 @@ export const List = (): ReactNode => {
 
     useEffect((): void => {
 
-        getTransaction()
+        getTransaction();
     }, []);
 
     return (

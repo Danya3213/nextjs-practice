@@ -8,7 +8,7 @@ export const useTransactionService = (): ITransactionService => {
     const {serviceLayout} = useServiceLayout();
 
     const authApi: AxiosInstance = axios.create({
-        baseURL: `${process.env.NEXT_PUBLIC_NEXT_URL}/trans`,
+        baseURL: `${process.env.NEXT_PUBLIC_NEST_URL}/trans`,
         withCredentials: true,
     })
 

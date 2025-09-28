@@ -1,12 +1,12 @@
 import cl from "./Backdrop.module.scss";
-import type {Dispatch, ReactNode, SetStateAction} from "react";
+import type {Dispatch, ReactElement, SetStateAction} from "react";
 
 export const Backdrop = ({className = cl.backdrop, setActive}: {
-    className: string;
+    className?: string;
     setActive: Dispatch<SetStateAction<boolean>>;
-}): ReactNode => {
+}): ReactElement => {
 
     return (
-        <div className={className} onClick={() => setActive(false)} />
+        <div className={className} onClick={() => setActive(false)}/>
     );
 };

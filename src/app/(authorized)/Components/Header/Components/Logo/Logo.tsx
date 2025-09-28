@@ -1,8 +1,8 @@
 import cl from "./logo.module.scss";
 import Image from "next/image";
-import type {ReactNode} from "react";
+import type {ReactElement} from "react";
 
-export const Logo = (): ReactNode => {
+export const Logo = (): ReactElement => {
 
     return (
         <div className={cl.logoContainer}>

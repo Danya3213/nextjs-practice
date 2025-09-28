@@ -1,0 +1,35 @@
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease-in-out 0.2s;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-60px);
+}
+
+.modalActive {
+  @extend .modal;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.modalInner {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 73px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+  border-radius: 8px;
+}

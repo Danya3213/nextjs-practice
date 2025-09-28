@@ -3,6 +3,7 @@ import {useAuthService} from "@api/authServices.api";
 import type {IButtonService} from "@notAuthPages/auth/interfaces/buttonService.interface";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface";
+import {devConsole} from "@devConsole";
 
 export function useButtonService():IButtonService {
 
@@ -17,6 +18,14 @@ export function useButtonService():IButtonService {
         } else {
 
             activateAll();
+
+            if (haveAccount) {
+
+                devConsole.error("login validation failed")
+            } else {
+
+                devConsole.error("registration validation failed")
+            }
         }
     }
 

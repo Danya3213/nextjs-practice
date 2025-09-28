@@ -1,7 +1,7 @@
 import cl from './top.module.scss'
-import type {ReactNode} from "react";
+import type {ReactElement} from "react";
 
-export const Top = (): ReactNode => {
+export const Top = (): ReactElement => {
 
     return (
         <ul className={cl.list}>

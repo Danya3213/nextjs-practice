@@ -1,9 +1,9 @@
 "use client"
 
 import './Preloader.scss'
-import {type ReactNode, useEffect, useState} from "react";
+import {type ReactElement, useEffect, useState} from "react";
 
-export const Preloader = (): ReactNode => {
+export const Preloader = (): ReactElement => {
 
     const [preloaderValue, setPreloaderValue] = useState<number>(0);
     const [hidden, setHidden] = useState<boolean>(false);

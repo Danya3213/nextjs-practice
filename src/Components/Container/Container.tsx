@@ -1,9 +1,9 @@
 import cl from './Container.module.scss'
-import type {PropsWithChildren, ReactNode} from "react";
+import type {PropsWithChildren, ReactElement} from "react";
 
 export const Container = ({children, className = ''}: PropsWithChildren<{
     className?: string;
-}>): ReactNode => {
+}>): ReactElement => {
 
     return (
         <div className={`${cl.container} ${className}`}>

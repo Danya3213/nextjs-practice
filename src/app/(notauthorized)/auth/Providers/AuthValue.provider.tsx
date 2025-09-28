@@ -1,11 +1,11 @@
 "use client"
 
-import {type PropsWithChildren, type ReactNode, useState} from "react";
+import {type PropsWithChildren, type ReactElement, useState} from "react";
 import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
 import {createFields} from "@notAuthPages/auth/hooks/useFields.hook";
 import {AuthValues} from "@notAuthPages/auth/store/authValues.store";
 
-export const AuthValueProvider = ({children}: Readonly<PropsWithChildren>): ReactNode => {
+export const AuthValueProvider = ({children}: Readonly<PropsWithChildren>): ReactElement => {
 
     const [values, setValues] = useState<IInputs<string>>({
         ...createFields<string>(""),

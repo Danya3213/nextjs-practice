@@ -4,7 +4,10 @@ import {GradientButton} from "./Components/GradientButton/GradientButton";
 import {Button} from "./Components/Button/Button";
 import type {Dispatch, SetStateAction} from "react";
 
-export const Buttons = ({setHaveAccount, haveAccount}: {setHaveAccount: Dispatch<SetStateAction<boolean>>, haveAccount: boolean}) => {
+export const Buttons = ({setHaveAccount, haveAccount}: {
+    setHaveAccount: Dispatch<SetStateAction<boolean>>,
+    haveAccount: boolean
+}) => {
 
     const {handleLogin, handleReg} = useButtonService();
 

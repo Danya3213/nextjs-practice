@@ -1,14 +1,14 @@
 "use client"
 
-import {type ReactNode, useEffect, useState} from "react";
+import {type ReactElement, useEffect, useState} from "react";
 import cl from './page.module.scss'
 import {useInputService} from "@notAuthPages/auth/services/inputService.service";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import {ModalLayout} from "@notAuthPages/auth/ModalLayout/ModalLayout";
 
-export default function Page (): ReactNode {
+export default function Page(): ReactElement {
 
-    const [ haveAccount, setHaveAccount ] = useState<boolean>(true);
+    const [haveAccount, setHaveAccount] = useState<boolean>(true);
 
     const {resetAll}: IInputService = useInputService();
 
@@ -28,8 +28,8 @@ export default function Page (): ReactNode {
 
     return (
         <main className={haveAccount ? cl.main : cl.mainAlt}>
-            <ModalLayout active={haveAccount} haveAccount={true} setHaveAccount={setHaveAccount} />
-            <ModalLayout active={!haveAccount} haveAccount={false} setHaveAccount={setHaveAccount} />
+            <ModalLayout active={haveAccount} haveAccount={true} setHaveAccount={setHaveAccount}/>
+            <ModalLayout active={!haveAccount} haveAccount={false} setHaveAccount={setHaveAccount}/>
         </main>
     );
 };

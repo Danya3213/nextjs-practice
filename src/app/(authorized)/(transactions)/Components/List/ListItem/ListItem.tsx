@@ -1,4 +1,4 @@
-import type {MouseEventHandler, ReactNode} from "react";
+import type {MouseEventHandler, ReactElement} from "react";
 import cl from './listItem.module.scss';
 import type {ECategory} from "@authPages/enums/category.enum";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export const ListItem = ({onClick, date, type, category, comment, sum}: {
     category: ECategory;
     comment: string;
     sum: number;
-}): ReactNode => {
+}): ReactElement => {
 
     return (
         <li className={cl.li}>

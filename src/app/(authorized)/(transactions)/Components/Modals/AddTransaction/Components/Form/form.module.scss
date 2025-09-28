@@ -1,0 +1,16 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 32px;
+  grid-row-gap: 40px;
+  grid-template-areas:
+  "type type"
+  "category category"
+  "sum date"
+  "comment comment";
+
+  > label {
+
+    padding-bottom: 8px;
+  }
+}

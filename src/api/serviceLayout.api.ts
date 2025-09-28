@@ -2,6 +2,7 @@ import {useResponse} from "@hooks/useResponse.hook";
 import type {IResponseContext} from "@/interfaces/ResponseContext.interface";
 import type {AxiosResponse} from "axios";
 import type {IServiceLayout} from "@/interfaces/serviceLayout.interface";
+import {devConsole} from "@devConsole";
 
 export function useServiceLayout (): IServiceLayout {
 
@@ -14,7 +15,8 @@ export function useServiceLayout (): IServiceLayout {
         try {
 
             return await tryCallback();
-        } catch (err) {
+        } catch (error) {
+            devConsole.error(error)
         } finally {
 
             setIsLoading((prev: number) => (prev - 1))

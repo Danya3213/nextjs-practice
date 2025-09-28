@@ -1,9 +1,9 @@
 "use client"
 
-import {type PropsWithChildren, type ReactNode, useState} from "react";
+import {type PropsWithChildren, type ReactElement, useState} from "react";
 import {ResponseContext} from "@store/response.store";
 
-export const ResponseProvider = ({children}: PropsWithChildren): ReactNode => {
+export const ResponseProvider = ({children}: PropsWithChildren): ReactElement => {
 
     const [ isLoading, setIsLoading ] = useState<number>(0);
 

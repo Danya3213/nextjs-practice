@@ -1,10 +1,10 @@
 import cl from "./button.module.scss";
 import {useAuthService} from "@api/authServices.api";
-import type {ReactNode} from "react";
+import type {ReactElement} from "react";
 import Image from "next/image";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface";
 
-export const Button = (): ReactNode => {
+export const Button = (): ReactElement => {
 
     const {logout}: IAuthService = useAuthService();
 

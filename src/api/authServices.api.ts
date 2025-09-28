@@ -6,6 +6,9 @@ import {useUserInfo} from "@hooks/useUserInfo.hook";
 import {useAuthValuesContext} from "@notAuthPages/auth/hooks/useAuthValues.hook";
 import {useInputService} from "@notAuthPages/auth/services/inputService.service";
 import {useServiceLayout} from "./serviceLayout.api";
+import {EField} from "@notAuthPages/auth/enums/field.enum";
+import {ROUTES} from "@constants/routes.const";
+import {devConsole} from "@devConsole";
 import type {IUserContext} from "@/interfaces/UserContext.interface";
 import type {IAuthValuesContext} from "@notAuthPages/auth/interfaces/authContext.interface";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
@@ -13,13 +16,11 @@ import type {IServiceLayout} from "@/interfaces/serviceLayout.interface";
 import type {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface"
 import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
-import {EField} from "@notAuthPages/auth/enums/field.enum";
-import {ROUTES} from "@constants/routes.const";
 
 export function useAuthService (): IAuthService {
 
     const authApi: AxiosInstance = axios.create({
-        baseURL: `${process.env.NEXT_PUBLIC_NEXT_URL}/auth`,
+        baseURL: `${process.env.NEXT_PUBLIC_NEST_URL}/auth`,
         withCredentials: true,
     })
 
@@ -52,6 +53,15 @@ export function useAuthService (): IAuthService {
                     propCallback();
                     setIsLoggedIn(true);
                     setName(res.data.username);
+                } else {
+
+                    if (haveAccount) {
+
+                        devConsole.error("login failed")
+                    } else {
+
+                        devConsole.error("registration failed")
+                    }
                 }
             })
         })
@@ -59,15 +69,25 @@ export function useAuthService (): IAuthService {
 
     const login = async (resOkCallback = ():void => {}): Promise<void> => {
 
-        await authFetch(true, resOkCallback);
+        devConsole.log("Logging in...");
+        await authFetch(true, () => {
+            resOkCallback()
+            devConsole.log("Logged in");
+        });
     }
 
     const registration = async (resOkCallback = ():void => {}): Promise<void> => {
 
-        await authFetch(false, resOkCallback);
+        devConsole.log("Registering...");
+        await authFetch(false, () => {
+            resOkCallback()
+            devConsole.log("Registered");
+        });
     }
 
     const logout = async (): Promise<void> => {
+
+        devConsole.log("Logging out...");
 
         await serviceLayout(async (): Promise<void> => {
 
@@ -77,6 +97,7 @@ export function useAuthService (): IAuthService {
                     goToPage(ROUTES.AUTH);
                     setIsLoggedIn(false);
                     setName("");
+                    devConsole.log("Logged out");
                 }
             })
         })

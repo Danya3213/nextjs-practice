@@ -1,0 +1,30 @@
+.button {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
+  box-shadow: 1px 9px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+
+  position: absolute;
+  top: 550px;
+  right: 24px;
+
+  $t: translate(-50%, -50%);
+
+  &::after,&::before{
+
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    width: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #FBFBFB;
+  }
+
+  &::after {
+
+    transform: $t rotate(90deg);
+  }
+}

@@ -1,8 +1,8 @@
 import cl from "./Circles.module.scss";
 import {Container} from "@Components/Container/Container";
-import {type ReactElement, type ReactNode, useEffect, useState} from "react";
+import {type ReactElement, useEffect, useState} from "react";
 
-export const Circles = (): ReactNode => {
+export const Circles = (): ReactElement => {
 
     const [ circles, setCircles ] = useState<ReactElement[]>([]);
     const circleCount: number = 5;

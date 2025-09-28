@@ -1,7 +1,7 @@
 import cl from "./border.module.scss";
-import type {ReactNode} from "react";
+import type {ReactElement} from "react";
 
-export const Border = (): ReactNode => {
+export const Border = (): ReactElement => {
 
     return (
         <div className={cl.border}/>
