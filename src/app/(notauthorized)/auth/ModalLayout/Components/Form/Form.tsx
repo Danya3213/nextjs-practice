@@ -1,10 +1,11 @@
 import cl from "./form.module.scss";
 import {LoginInputs} from "./Components/LoginInputs/LoginInputs";
 import {RegInputs} from "./Components/RegInputs/RegInputs";
-import type {KeyboardEvent} from "react";
+import type {Dispatch, KeyboardEvent, SetStateAction} from "react";
 import {useButtonService} from "@notAuthPages/auth/services/buttonService.service";
+import {ButtonsLayout} from "@Components/Layouts/Buttons/Buttons";
 
-export const Form = ({haveAccount}: {haveAccount: boolean}) => {
+export const Form = ({haveAccount, setHaveAccount}: {haveAccount: boolean, setHaveAccount: Dispatch<SetStateAction<boolean>>}) => {
 
     const {handleLogin, handleReg} = useButtonService();
 
@@ -25,6 +26,11 @@ export const Form = ({haveAccount}: {haveAccount: boolean}) => {
                 <LoginInputs/>
             ) : (
                 <RegInputs />
+            )}
+            {haveAccount ? (
+                <ButtonsLayout topTitle={"log in"} bottomTitle={"register"} topOnClick={handleLogin} bottomOnClick={() => setHaveAccount(false)}/>
+            ): (
+                <ButtonsLayout topTitle={"register"} bottomTitle={"log in"} topOnClick={handleReg} bottomOnClick={() => setHaveAccount(true)}/>
             )}
         </form>
     );

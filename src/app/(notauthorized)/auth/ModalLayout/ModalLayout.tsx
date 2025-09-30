@@ -1,7 +1,6 @@
 import cl from './modalLayout.module.scss'
 import {Logo} from "@Components/Logo/Logo";
 import {Form} from "@notAuthPages/auth/ModalLayout/Components/Form/Form";
-import {Buttons} from "@notAuthPages/auth/ModalLayout/Components/Buttons/Buttons";
 import type {Dispatch, SetStateAction} from "react";
 
 export const ModalLayout = ({active, haveAccount, setHaveAccount}: {active: boolean, haveAccount: boolean, setHaveAccount: Dispatch<SetStateAction<boolean>>}) => {
@@ -31,8 +30,7 @@ export const ModalLayout = ({active, haveAccount, setHaveAccount}: {active: bool
     return (
         <div className={className()}>
             <Logo/>
-            <Form haveAccount={haveAccount}/>
-            <Buttons haveAccount={haveAccount} setHaveAccount={setHaveAccount} />
+            <Form haveAccount={haveAccount} setHaveAccount={setHaveAccount}/>
         </div>
     );
 };
