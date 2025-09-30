@@ -9,9 +9,9 @@ export const ModalLayout = ({children, active, setActive}: PropsWithChildren<{
 }>): ReactElement => {
 
     return (
-        <div className={active ? cl.modalActive : cl.modal}>
-            <Backdrop setActive={setActive} />
-            <div className={cl.modalInner}>
+        <div className={active ? cl.containerActive : cl.container}>
+            <Backdrop setActive={setActive}/>
+            <div className={active ? cl.modalActive : cl.modal}>
                 {children}
                 <Close setActive={setActive}/>
             </div>
