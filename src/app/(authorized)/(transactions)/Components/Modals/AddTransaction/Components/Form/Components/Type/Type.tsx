@@ -1,19 +1,20 @@
 "use client"
 
 import cl from './type.module.scss'
-import {type ReactElement, useState} from "react";
+import {type EventHandler, type ReactElement, useState} from "react";
 
-export const Type = (): ReactElement => {
-
-    const [ isIncrement, setIsIncrement ] = useState<boolean>(false);
+export const Type = ({value, setValue}: {
+    value: boolean;
+    setValue: (v: boolean) => void;
+}): ReactElement => {
     
     return (
         <div className={cl.container}>
-            <h4 className={!isIncrement ? cl.textActive : cl.text}>Income</h4>
+            <h4 className={!value ? cl.textActive : cl.text}>Income</h4>
             <label className={cl.label}>
-                <button className={!isIncrement ? cl.buttonActive : cl.button} onClick={():void => setIsIncrement(!isIncrement)} />
+                <button className={!value ? cl.buttonActive : cl.button} onClick={():void => setValue(!value)} type={"button"} />
             </label>
-            <h4 className={isIncrement ? cl.textActive : cl.text}>Expense</h4>
+            <h4 className={value ? cl.textActive : cl.text}>Expense</h4>
         </div>
     );
 };

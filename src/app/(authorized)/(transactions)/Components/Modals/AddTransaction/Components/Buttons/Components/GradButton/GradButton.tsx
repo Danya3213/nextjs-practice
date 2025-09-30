@@ -5,7 +5,7 @@ import cl from './gradButton.module.scss'
 export const GradButton = (): ReactElement=> {
 
     return (
-        <ButtonLayout className={cl.button}>
+        <ButtonLayout form={"Add transaction form"} type={"submit"}  className={cl.button}>
             Add
         </ButtonLayout>
     );

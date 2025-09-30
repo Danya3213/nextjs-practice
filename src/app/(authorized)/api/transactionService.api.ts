@@ -15,7 +15,15 @@ export const useTransactionService = (): ITransactionService => {
     async function getTransactions(): Promise<ITransaction[] | undefined> {
         return serviceLayout<ITransaction[]>(async (): Promise<ITransaction[]> => {
 
-            const { data } = await authApi.get<ITransaction[]>("/all");
+            const { data }: {data: ITransaction[] | undefined} = await authApi.get<ITransaction[]>("/all");
+            return data;
+        });
+    }
+
+    async function createTransaction(trans: Omit<ITransaction, "_id">): Promise<ITransaction | undefined> {
+        return serviceLayout<ITransaction | undefined>(async (): Promise<ITransaction | undefined> => {
+
+            const {data}: {data: ITransaction | undefined} = await authApi.post<ITransaction | undefined>(`/add`, trans);
             return data;
         });
     }
@@ -23,7 +31,7 @@ export const useTransactionService = (): ITransactionService => {
     async function deleteTransaction(id: string): Promise<ITransaction | undefined> {
         return serviceLayout<ITransaction | undefined>(async (): Promise<ITransaction | undefined> => {
 
-            const {data} = await authApi.delete<ITransaction | undefined>(`/del/${id}`);
+            const {data}: {data: ITransaction | undefined} = await authApi.delete<ITransaction | undefined>(`/del/${id}`);
             return data;
         });
     }
@@ -31,6 +39,7 @@ export const useTransactionService = (): ITransactionService => {
 
     return  {
         getTransactions,
+        createTransaction,
         deleteTransaction
     }
 }
