@@ -10,7 +10,7 @@ export const ModalLayout = ({children, active, setActive}: PropsWithChildren<{
 
     return (
         <div className={active ? cl.containerActive : cl.container}>
-            <Backdrop setActive={setActive}/>
+            <Backdrop active={active} setActive={setActive}/>
             <div className={active ? cl.modalActive : cl.modal}>
                 {children}
                 <Close setActive={setActive}/>
