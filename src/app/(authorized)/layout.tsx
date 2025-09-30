@@ -8,6 +8,7 @@ import {Circles} from "@authPages/Components/Circles/Circles";
 import {type PropsWithChildren} from "react";
 import {Preloader} from "@Components/Preloader/Preloader";
 import {AddTransaction} from "@authPages/(transactions)/Components/Modals/AddTransaction/AddTransaction";
+import {LogOutModal} from "@authPages/Components/LogOutModal/LogOutModal";
 
 export default function Layout({ children }: PropsWithChildren) {
 
@@ -20,6 +21,7 @@ export default function Layout({ children }: PropsWithChildren) {
                     {children}
                 </Container>
                 <AddTransaction/>
+                <LogOutModal/>
                 <Circles/>
                 {process.env.NEXT_PUBLIC_MODE === "PROD" ? <Preloader /> : null}
             </main>

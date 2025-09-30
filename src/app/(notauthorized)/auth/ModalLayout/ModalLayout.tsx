@@ -1,5 +1,5 @@
 import cl from './modalLayout.module.scss'
-import {Logo} from "@notAuthPages/auth/ModalLayout/Components/Logo/Logo";
+import {Logo} from "@Components/Logo/Logo";
 import {Form} from "@notAuthPages/auth/ModalLayout/Components/Form/Form";
 import {Buttons} from "@notAuthPages/auth/ModalLayout/Components/Buttons/Buttons";
 import type {Dispatch, SetStateAction} from "react";

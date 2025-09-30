@@ -1,7 +1,7 @@
 "use client"
 
 import cl from './type.module.scss'
-import {type EventHandler, type ReactElement, useState} from "react";
+import {type ReactElement} from "react";
 
 export const Type = ({value, setValue}: {
     value: boolean;

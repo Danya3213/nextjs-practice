@@ -85,7 +85,7 @@ export function useAuthService (): IAuthService {
         });
     }
 
-    const logout = async (): Promise<void> => {
+    const logout = async (resOkCallback = ():void => {}): Promise<void> => {
 
         devConsole.log("Logging out...");
 
@@ -98,6 +98,7 @@ export function useAuthService (): IAuthService {
                     setIsLoggedIn(false);
                     setName("");
                     devConsole.log("Logged out");
+                    resOkCallback();
                 }
             })
         })

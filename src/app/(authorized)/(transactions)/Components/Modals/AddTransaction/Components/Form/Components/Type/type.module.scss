@@ -19,9 +19,9 @@
 
   width: 44px;
   height: 44px;
-  transform: translateX(50%);
   background-color: #FF868D;
-  box-shadow: 0 6px 15px rgba(255, 134, 141, 0.5);
+  transform: translateX(50%);
+  box-shadow: 0 6px 15px #FF868D;
   border-radius: 50%;
   transition: all ease 0.3s;
   position: relative;
@@ -56,6 +56,8 @@
 
   @extend .button;
   transform: translateX(-50%);
+  box-shadow: 0 6px 15px #FFC72780;
+  background-color: #FFB627;
 
   &::before {
 
