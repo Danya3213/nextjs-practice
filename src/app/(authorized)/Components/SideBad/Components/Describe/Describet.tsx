@@ -1,6 +1,7 @@
 import cl from "./describe.module.scss";
+import type {ReactElement} from "react";
 
-export const Describe = () => {
+export const Describe = (): ReactElement => {
 
     return (
         <ul className={cl.describe}>

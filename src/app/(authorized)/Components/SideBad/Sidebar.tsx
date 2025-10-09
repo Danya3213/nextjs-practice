@@ -3,8 +3,10 @@ import {Buttons} from "./Components/Buttons/Buttons";
 import {Balance} from "./Components/Balance/Balance";
 import {Info} from "./Components/Table/InfoList";
 import {Describe} from "./Components/Describe/Describet";
+import {Chart} from "./Components/Chart/Chart";
+import type {ReactElement} from "react";
 
-export const Sidebar = () => {
+export const Sidebar = (): ReactElement => {
 
     return (
         <aside className={cl.aside}>
@@ -13,6 +15,7 @@ export const Sidebar = () => {
                 <Balance/>
                 <Describe />
                 <Info/>
+                <Chart/>
             </div>
         </aside>
     );

@@ -1,8 +1,9 @@
 import {InfoListItem} from "./Components/InfoListItem/InfoListItem";
 import {InfoList} from "./Components/InfoList/InfoList";
 import {Text} from "./Components/Text/Text";
+import type {ReactElement} from "react";
 
-export const Info = () => {
+export const Info = (): ReactElement => {
 
     return (
         <InfoList>

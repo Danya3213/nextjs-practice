@@ -7,4 +7,18 @@
   align-items: center;
 
   border-bottom: 1px solid #FFFFFF66;
+  position: relative;
+  cursor: pointer;
+}
+
+.select {
+
+  -webkit-appearance: none;
+  font-size: 18px;
+  width: 100%;
+}
+
+.option {
+
+  font-size: 18px;
 }

@@ -1,7 +1,8 @@
 import cl from "./buttons.module.scss";
 import Image from "next/image";
+import type {ReactElement} from "react";
 
-export const Buttons = () => {
+export const Buttons = (): ReactElement => {
 
     return (
         <div className={cl.buttonContainer}>

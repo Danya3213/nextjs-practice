@@ -1,7 +1,7 @@
-import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
 import axios, {type AxiosInstance} from "axios";
 import {useServiceLayout} from "@api/serviceLayout.api";
 import type {ITransaction} from "@authPages/interfaces/transaction.interface";
+import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
 
 export const useTransactionService = (): ITransactionService => {
 
@@ -11,6 +11,11 @@ export const useTransactionService = (): ITransactionService => {
         baseURL: `${process.env.NEXT_PUBLIC_NEST_URL}/trans`,
         withCredentials: true,
     })
+
+    async function connectSocketIo(): Promise<void> {
+
+
+    }
 
     async function getTransactions(): Promise<ITransaction[] | undefined> {
         return serviceLayout<ITransaction[]>(async (): Promise<ITransaction[]> => {
@@ -38,6 +43,7 @@ export const useTransactionService = (): ITransactionService => {
 
 
     return  {
+        connectSocketIo,
         getTransactions,
         createTransaction,
         deleteTransaction

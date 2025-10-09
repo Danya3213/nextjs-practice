@@ -6,17 +6,6 @@ import {useTransactionService} from "@authPages/api/transactionService.api";
 import {type ReactElement, useEffect, useState} from "react";
 import type {ITransaction} from "@authPages/interfaces/transaction.interface";
 import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
-// import {io, Socket} from 'socket.io-client';
-
-// const socket = io(`${process.env.NEXT_PUBLIC_NEST_URL}/transactions`, {
-//     withCredentials: true,
-//     transports: ["websocket"],
-// });
-
-// const socket = io(`wss://localhost:4200/api/transactions`, {
-//     withCredentials: true,
-//     transports: ["websocket"],
-// });
 
 export const List = (): ReactElement => {
 
@@ -24,21 +13,7 @@ export const List = (): ReactElement => {
     const [ transactions, setTransactions ] = useState<ITransaction[]>([]);
 
     const getTransaction = async (): Promise<void> => {
-    //
-    //     socket.on("connect", () => {
-    //         devConsole.log(socket.id)
-    //         socket.emit("transactions");
-    //     })
-    //
-    //     socket.on("transactions", (data) => {
-    //
-    //         devConsole.log("Оновлений масив:", data);
-    //         setTransactions(data);
-    //     });
-    //
-    //     return (): void => {
-    //         socket.off("transactions");
-    //     };
+
     }
 
     const handleDeleteTransaction = async (id: string): Promise<void> => {

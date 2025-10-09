@@ -1,6 +1,7 @@
 import cl from "./balance.module.scss";
+import type {ReactElement} from "react";
 
-export const Balance = () => {
+export const Balance = (): ReactElement => {
 
     return (
         <div className={cl.rowColored}>

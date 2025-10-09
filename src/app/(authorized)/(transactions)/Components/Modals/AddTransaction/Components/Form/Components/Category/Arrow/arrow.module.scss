@@ -1,7 +1,11 @@
 .arrow {
   width: 22px;
-  height: 9px;
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  height: 100%;
 
   &::after, &::before {
 
