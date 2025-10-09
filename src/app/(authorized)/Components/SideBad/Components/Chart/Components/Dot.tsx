@@ -4,8 +4,7 @@ interface ICustomDotProps extends DotProps {
     index: number;
 }
 
-export const CustomDot = (props: ICustomDotProps) => {
-    const { cx, cy, index } = props;
+export const CustomDot = ({ cx, cy, index }: Partial<ICustomDotProps>) => {
 
     if (index === 1 || index === 4) {
         return (

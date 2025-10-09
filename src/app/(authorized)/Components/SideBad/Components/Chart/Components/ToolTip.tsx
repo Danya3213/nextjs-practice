@@ -9,7 +9,7 @@ interface ICustomTooltipProps extends TooltipProps<number, string> {
     }[]
 }
 
-export const CustomTooltip = ({ active, payload }: ICustomTooltipProps) => {
+export const CustomTooltip = ({ active, payload }: Partial<ICustomTooltipProps>) => {
     if (active && payload && payload.length) {
         const dataPoint = payload[0].payload;
 
