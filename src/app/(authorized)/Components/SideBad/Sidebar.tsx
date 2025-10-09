@@ -1,10 +1,8 @@
 import cl from './Sidebar.module.scss';
 import {Buttons} from "./Components/Buttons/Buttons";
 import {Balance} from "./Components/Balance/Balance";
-import {Info} from "./Components/Table/InfoList";
-import {Describe} from "./Components/Describe/Describet";
-import {Chart} from "./Components/Chart/Chart";
 import type {ReactElement} from "react";
+import {Graphic} from "./Components/Graphic/Graphic";
 
 export const Sidebar = (): ReactElement => {
 
@@ -13,9 +11,7 @@ export const Sidebar = (): ReactElement => {
             <div className={cl.inner}>
                 <Buttons/>
                 <Balance/>
-                <Describe />
-                <Info/>
-                <Chart/>
+                <Graphic/>
             </div>
         </aside>
     );

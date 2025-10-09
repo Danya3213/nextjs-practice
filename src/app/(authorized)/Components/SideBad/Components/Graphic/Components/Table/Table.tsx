@@ -3,7 +3,7 @@ import {InfoList} from "./Components/InfoList/InfoList";
 import {Text} from "./Components/Text/Text";
 import type {ReactElement} from "react";
 
-export const Info = (): ReactElement => {
+export const Table = (): ReactElement => {
 
     return (
         <InfoList>

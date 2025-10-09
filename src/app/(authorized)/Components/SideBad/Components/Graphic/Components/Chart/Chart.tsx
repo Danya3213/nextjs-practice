@@ -7,8 +7,8 @@ import {CustomTooltip} from './Components/ToolTip';
 export const Chart = (): ReactElement => {
 
     const data = [
-        { name: 'Point 1', value: 26.3 },
-        { name: 'Point 2', value: 27.6 },
+        { name: 'Point 1', value: 26.7 },
+        { name: 'Point 2', value: 28 },
         { name: 'Point 3', value: 26 },
         { name: 'Point 4', value: 27.5 },
         { name: 'Point 5', value: 29 },
@@ -26,7 +26,6 @@ export const Chart = (): ReactElement => {
             <Box
                 sx={{
                     background: '#4A56E21A',
-                    borderRadius: '12px',
                     position: 'relative',
                 }}
             >
@@ -34,7 +33,7 @@ export const Chart = (): ReactElement => {
                 <ResponsiveContainer width="100%" height={190}>
                     <AreaChart
                         data={data}
-                        margin={{ top: 10, right: 1, left: 1, bottom: 0 }}
+                        margin={{ right: 1, left: 1 }}
                     >
                         <defs>
                             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
