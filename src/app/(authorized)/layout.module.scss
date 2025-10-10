@@ -11,4 +11,5 @@
   display: grid;
   grid-template-columns: 480px 1fr;
   height: calc(100vh - 80px);
+  grid-column-gap: 70px;
 }

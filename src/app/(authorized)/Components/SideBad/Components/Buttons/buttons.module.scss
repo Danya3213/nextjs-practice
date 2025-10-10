@@ -14,10 +14,16 @@
   align-items: center;
   gap: 20px;
   text-transform: none;
+  transition: all ease-in-out 0.2s;
 }
 
 .buttonActive {
 
   @extend .button;
   font-weight: bold;
+}
+
+.svgActive {
+
+  filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
 }
