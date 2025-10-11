@@ -1,0 +1,94 @@
+.button {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  padding: 12px 20px 14px;
+  border-radius: 8px;
+  border: 1px solid #FFFFFF99;
+  position: relative;
+}
+
+.arrow {
+
+  position: relative;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  transition: all ease-in-out 0.2s;
+
+  &::after,&::before {
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 15px;
+    background: #FBFBFB;
+  }
+
+  &::after {
+
+    transform: translateY(-50%) rotate(45deg);
+    left: -4;
+  }
+
+  &::before {
+
+    transform: translateY(-50%) rotate(-45deg);
+    right: -4;
+  }
+}
+
+.arrowActive {
+
+  @extend .arrow;
+  transform: rotateX(180deg);
+}
+
+.list {
+
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform ease-in-out 0.2s;
+  text-align: left;
+  padding-block: 10px 5px;
+  background-image: linear-gradient(0deg, #533DBA, #50309A, #6A46A5BF, #855DAF66);
+  height: 160px;
+  overflow-y: scroll;
+  border-radius: 8px;
+  box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+
+  > li {
+
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    padding: 8px 20px;
+    user-select: none;
+
+    &:hover:not(:active), &:active:not(:hover) {
+
+      color: #FF868D;
+      background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    &:active {
+
+      color: #FF868D;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+.listActive {
+
+  @extend .list;
+  transform: scaleY(1);
+}

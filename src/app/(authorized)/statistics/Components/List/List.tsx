@@ -4,8 +4,6 @@ import {Search} from "./Components/Search/Search";
 
 export const List = (): ReactElement => {
 
-
-
     return (
         <div className={cl.list}>
             <Search/>

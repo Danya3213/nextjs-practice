@@ -2,7 +2,7 @@
 
   margin-top: 32px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 288px) minmax(0, 395px);
   grid-template-rows: auto 1fr;
   grid-row-gap: 20px;
   grid-template-areas: "title title"
