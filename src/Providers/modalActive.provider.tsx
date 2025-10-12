@@ -1,7 +1,7 @@
 "use client"
 
 import {type PropsWithChildren, type ReactElement, useState} from "react";
-import {ModalActiveContext} from "@store/modalActive.store";
+import {ModalActiveContext} from "@/stores/modalActive.store";
 
 export const ModalActiveProvider = ({children}: PropsWithChildren): ReactElement => {
 

@@ -9,11 +9,12 @@ import {type PropsWithChildren} from "react";
 import {Preloader} from "@Components/Preloader/Preloader";
 import {AddTransaction} from "@authPages/(transactions)/Components/Modals/AddTransaction/AddTransaction";
 import {LogOutModal} from "@authPages/Components/LogOutModal/LogOutModal";
+import {TransactionProvider} from "@authPages/Providers/transaction.provider";
 
 export default function Layout({ children }: PropsWithChildren) {
 
     return (
-        <>
+        <TransactionProvider>
             <Header />
             <main className={cl.main}>
                 <Container className={cl.container}>
@@ -25,6 +26,6 @@ export default function Layout({ children }: PropsWithChildren) {
                 <Circles/>
                 {process.env.NEXT_PUBLIC_MODE === "PROD" ? <Preloader /> : null}
             </main>
-        </>
+        </TransactionProvider>
     )
 }

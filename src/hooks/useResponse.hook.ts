@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {ResponseContext} from "@store/response.store";
+import {ResponseContext} from "@/stores/response.store";
 import type {IResponseContext} from "@/interfaces/ResponseContext.interface";
 
 export const useResponse = (): IResponseContext => {

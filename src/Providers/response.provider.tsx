@@ -1,7 +1,7 @@
 "use client"
 
 import {type PropsWithChildren, type ReactElement, useState} from "react";
-import {ResponseContext} from "@store/response.store";
+import {ResponseContext} from "@/stores/response.store";
 
 export const ResponseProvider = ({children}: PropsWithChildren): ReactElement => {
 

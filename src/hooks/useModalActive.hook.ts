@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {ModalActiveContext} from "@store/modalActive.store";
+import {ModalActiveContext} from "@/stores/modalActive.store";
 import type {IModalActiveContext} from "@/interfaces/modalActive.interface";
 
 export const useModalActive = (): IModalActiveContext => {

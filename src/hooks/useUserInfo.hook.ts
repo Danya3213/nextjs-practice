@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {UserContext} from "@store/userInfo.store";
+import {UserContext} from "@/stores/userInfo.store";
 import type {IUserContext} from "@/interfaces/UserContext.interface";
 
 export const useUserInfo = (): IUserContext => {

@@ -1,7 +1,7 @@
 "use client"
 
 import {type PropsWithChildren, type ReactElement, useState} from "react";
-import {UserContext} from "@store/userInfo.store";
+import {UserContext} from "@/stores/userInfo.store";
 
 export const UserInfoProvider = ({children}: PropsWithChildren): ReactElement => {
 
