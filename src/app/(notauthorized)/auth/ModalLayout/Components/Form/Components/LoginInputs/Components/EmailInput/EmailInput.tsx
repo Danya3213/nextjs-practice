@@ -20,6 +20,7 @@ export const EmailInput = () => {
         <Input placeholder={"E-mail"} img={'/svgs/mail.svg'} value={value} onChange={(e) => {
             setValue(e.target.value);
             setError(!validateEmail(e.target.value));
+            setActive(true)
         }} onFocus={() => setActive(true)} active={active} error={error} type={ETypes.email} />
     );
 };

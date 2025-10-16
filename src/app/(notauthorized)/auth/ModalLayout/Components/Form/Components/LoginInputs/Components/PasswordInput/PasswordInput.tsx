@@ -21,6 +21,7 @@ export const PasswordInput = () => {
         <Input placeholder={"Password"} img={'/svgs/lock.svg'} value={value} onChange={(e) => {
             setValue(e.target.value);
             setError(!validatePassword(e.target.value));
+            setActive(true)
         }} onFocus={() => setActive(true)} active={active} error={error} type={ETypes.password} />
     );
 };

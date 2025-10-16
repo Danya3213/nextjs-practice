@@ -21,6 +21,7 @@ export const UsernameInput = () => {
         <Input placeholder={"Name"} img={'/svgs/user.svg'} value={value} onChange={(e) => {
             setValue(e.target.value);
             setError(!validateUsername(e.target.value));
+            setActive(true)
         }} onFocus={() => setActive(true)} active={active} error={error} type={ETypes.input} />
     );
 };

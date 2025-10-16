@@ -29,6 +29,7 @@ export const ConfirmPasswordInput = () => {
         <Input placeholder={"Confirm password"} img={'/svgs/lock.svg'} value={value} onChange={(e) => {
             setValue(e.target.value);
             setError(!validateConfirmPassword(e.target.value, passwordValue));
+            setActive(true)
         }} onFocus={() => setActive(true)} active={active} error={error} type={ETypes.password} />
     );
 };
