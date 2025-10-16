@@ -7,6 +7,8 @@ import {UserInfoProvider} from "@Providers/userInfo.provider";
 import {AuthValueProvider} from "@notAuthPages/auth/Providers/AuthValue.provider";
 import {AuthGuardProvider} from "@/middlewares/auth.middleware";
 import {ModalActiveProvider} from "@Providers/modalActive.provider";
+import {NotificationProvider} from "@Providers/notification.provider";
+import {Notifications} from "@Components/Notifications/Notifications";
 
 export const metadata: Metadata = {
     title: "Money guard", description: "Check your transactions in safety", icons: {
@@ -24,20 +26,23 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-        <ModalActiveProvider>
-            <ResponseProvider>
-                <UserInfoProvider>
-                    <AuthGuardProvider>
-                        <AuthValueProvider>
-                            <body>
-                            {children}
-                            <Loading/>
-                            </body>
-                        </AuthValueProvider>
-                    </AuthGuardProvider>
-                </UserInfoProvider>
-            </ResponseProvider>
-        </ModalActiveProvider>
+        <NotificationProvider>
+            <ModalActiveProvider>
+                <ResponseProvider>
+                    <UserInfoProvider>
+                        <AuthGuardProvider>
+                            <AuthValueProvider>
+                                <body>
+                                {children}
+                                <Loading/>
+                                <Notifications/>
+                                </body>
+                            </AuthValueProvider>
+                        </AuthGuardProvider>
+                    </UserInfoProvider>
+                </ResponseProvider>
+            </ModalActiveProvider>
+        </NotificationProvider>
         </html>
     );
 }
