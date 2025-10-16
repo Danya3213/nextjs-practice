@@ -7,12 +7,12 @@ import {CustomTooltip} from './Components/ToolTip';
 export const Chart = (): ReactElement => {
 
     const data = [
-        { name: 'Point 1', value: 26.7 },
-        { name: 'Point 2', value: 28 },
-        { name: 'Point 3', value: 26 },
-        { name: 'Point 4', value: 27.5 },
-        { name: 'Point 5', value: 29 },
-        { name: 'Point 5', value: 28 },
+        { id: "1", name: 'Point 1', value: 26.7 },
+        { id: "2", name: 'Point 2', value: 28 },
+        { id: "3", name: 'Point 3', value: 26 },
+        { id: "4", name: 'Point 4', value: 27.5 },
+        { id: "5", name: 'Point 5', value: 29 },
+        { id: "6", name: 'Point 5', value: 28 },
     ];
 
     return (
@@ -31,6 +31,7 @@ export const Chart = (): ReactElement => {
             >
 
                 <ResponsiveContainer width="100%" height={190}>
+
                     <AreaChart
                         data={data}
                         margin={{ right: 1, left: 1 }}
