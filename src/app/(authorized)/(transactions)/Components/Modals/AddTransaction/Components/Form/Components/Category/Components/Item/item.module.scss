@@ -1,0 +1,20 @@
+.li {
+
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  padding: 8px 20px;
+  user-select: none;
+  text-transform: capitalize;
+
+  &:hover:not(:active), &:active:not(:hover) {
+
+    color: #FF868D;
+    background-color: rgba(255, 255, 255, 0.07);
+  }
+
+  &:active {
+
+    color: #FF868D;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}

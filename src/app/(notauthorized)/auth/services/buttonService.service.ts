@@ -4,11 +4,15 @@ import type {IButtonService} from "@notAuthPages/auth/interfaces/buttonService.i
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface";
 import {devConsole} from "@devConsole";
+import type {INotificationContext} from "@/interfaces/notificationContext.interface";
+import {useNotification} from "@hooks/useNotification";
+import {ENotificationType} from "@/enums/notificationsType.enum";
 
 export function useButtonService():IButtonService {
 
     const {isEverythingOk, activateAll}: IInputService = useInputService();
     const {login, registration}: IAuthService = useAuthService();
+    const {createNotification}: INotificationContext = useNotification();
 
     async function authLayout(haveAccount: boolean, callBack: () => Promise<void>): Promise<void> {
 
@@ -18,10 +22,11 @@ export function useButtonService():IButtonService {
         } else {
 
             activateAll();
+            createNotification(ENotificationType.warning, "Validation failed")
 
             if (haveAccount) {
 
-                devConsole.error("login validation failed")
+                devConsole.error("login validation failed");
             } else {
 
                 devConsole.error("registration validation failed")

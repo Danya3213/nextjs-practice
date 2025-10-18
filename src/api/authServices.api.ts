@@ -9,6 +9,8 @@ import {useServiceLayout} from "./serviceLayout.api";
 import {EField} from "@notAuthPages/auth/enums/field.enum";
 import {ROUTES} from "@constants/routes.const";
 import {devConsole} from "@devConsole";
+import {useNotification} from "@hooks/useNotification";
+import {ENotificationType} from "@/enums/notificationsType.enum";
 import type {IUserContext} from "@/interfaces/UserContext.interface";
 import type {IAuthValuesContext} from "@notAuthPages/auth/interfaces/authContext.interface";
 import type {IInputService} from "@notAuthPages/auth/interfaces/inputService.interface";
@@ -16,6 +18,7 @@ import type {IServiceLayout} from "@/interfaces/serviceLayout.interface";
 import type {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import type {IAuthService} from "@notAuthPages/auth/interfaces/authService.interface"
 import type {IInputs} from "@notAuthPages/auth/interfaces/inputs.interface";
+import type {INotificationContext} from "@/interfaces/notificationContext.interface";
 
 export function useAuthService (): IAuthService {
 
@@ -24,6 +27,7 @@ export function useAuthService (): IAuthService {
         withCredentials: true,
     })
 
+    const {createNotification}: INotificationContext = useNotification();
     const {setIsLoggedIn, setName}:IUserContext = useUserInfo();
     const router: AppRouterInstance = useRouter();
     const goToPage = (v: string): void => {
@@ -53,17 +57,24 @@ export function useAuthService (): IAuthService {
                     propCallback();
                     setIsLoggedIn(true);
                     setName(res.data.username);
-                } else {
 
-                    if (haveAccount) {
+                    if (!res.data.isComfirmed) {
 
-                        devConsole.error("login failed")
-                    } else {
-
-                        devConsole.error("registration failed")
+                        createNotification(ENotificationType.warning, "Please, confirm your email");
                     }
                 }
-            })
+            }).catch((err) => {
+                if (haveAccount) {
+
+                    createNotification(ENotificationType.error, err.response.data.message);
+                    devConsole.error("login failed");
+
+                } else {
+
+                    createNotification(ENotificationType.error, err.response.data.message);
+                    devConsole.error("registration failed")
+                }
+            });
         })
     }
 
@@ -71,6 +82,7 @@ export function useAuthService (): IAuthService {
 
         devConsole.log("Logging in...");
         await authFetch(true, () => {
+            createNotification(ENotificationType.success, "Logged in");
             resOkCallback()
             devConsole.log("Logged in");
         });
@@ -80,6 +92,7 @@ export function useAuthService (): IAuthService {
 
         devConsole.log("Registering...");
         await authFetch(false, () => {
+            createNotification(ENotificationType.success, "Registered");
             resOkCallback()
             devConsole.log("Registered");
         });
@@ -98,6 +111,7 @@ export function useAuthService (): IAuthService {
                     setIsLoggedIn(false);
                     setName("");
                     devConsole.log("Logged out");
+                    createNotification(ENotificationType.success, "Logged out");
                     resOkCallback();
                 }
             })

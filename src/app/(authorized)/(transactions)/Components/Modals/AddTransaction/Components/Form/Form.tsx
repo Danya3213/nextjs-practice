@@ -9,14 +9,26 @@ import type {ITransaction} from "@authPages/interfaces/transaction.interface";
 import {ECategory} from "@authPages/enums/category.enum";
 import {useTransactionService} from "@authPages/api/transactionService.api";
 import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
+import type {IModalActiveContext} from "@/interfaces/modalActive.interface";
+import {useModalActive} from "@hooks/useModalActive.hook";
 
 export const Form = (): ReactElement => {
 
     const {createTransaction}: ITransactionService = useTransactionService();
+    const {setAddTransaction}:IModalActiveContext = useModalActive();
 
     const handleOnSubmitPrevent = async (e: FormEvent) => {
         e.preventDefault();
-        await createTransaction(value);
+        await createTransaction(value, () => {
+            setValue({
+                type: false,
+                category: ECategory["Self care"],
+                comment: "",
+                date: "",
+                sum: 0
+            })
+            setAddTransaction(false);
+        });
     }
 
     const [value, setValue] = useState<Omit<ITransaction, "_id">>({

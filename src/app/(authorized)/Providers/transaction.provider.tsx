@@ -8,6 +8,8 @@ export const TransactionProvider = ({children}: PropsWithChildren): ReactElement
 
     const [ transactions, setTransactions ] = useState<ITransaction[]>([]);
 
+
+
     return (
         <TransactionContext.Provider value={{
             transactions,

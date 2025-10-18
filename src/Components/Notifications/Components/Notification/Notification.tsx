@@ -3,12 +3,13 @@ import {type ENotificationType} from "@/enums/notificationsType.enum";
 import cl from './notification.module.scss'
 import Image from "next/image";
 
-export const Notification = ({type, title}: {
+export const Notification = ({type, title, isHidden}: {
     type: ENotificationType,
-    title: string
+    title: string,
+    isHidden: boolean
 }): ReactElement => {
     return (
-        <li className={cl.modal}>
+        <li className={!isHidden ? cl.modalActive : cl.modal}>
             <div className={cl.topRow}>
                 <Image src={`/svgs/${type.toLowerCase()}.svg`} alt={''} width={36} height={36} />
                 <h4 className={`${cl.type}${type}`}>{type.toLowerCase()}</h4>

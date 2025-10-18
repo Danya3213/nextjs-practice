@@ -9,6 +9,7 @@ import {AuthGuardProvider} from "@/middlewares/auth.middleware";
 import {ModalActiveProvider} from "@Providers/modalActive.provider";
 import {NotificationProvider} from "@Providers/notification.provider";
 import {Notifications} from "@Components/Notifications/Notifications";
+import {TransactionProvider} from "@authPages/Providers/transaction.provider";
 
 export const metadata: Metadata = {
     title: "Money guard", description: "Check your transactions in safety", icons: {
@@ -33,7 +34,9 @@ export default function RootLayout({
                         <AuthGuardProvider>
                             <AuthValueProvider>
                                 <body>
-                                {children}
+                                <TransactionProvider>
+                                    {children}
+                                </TransactionProvider>
                                 <Loading/>
                                 <Notifications/>
                                 </body>

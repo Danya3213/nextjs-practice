@@ -4,4 +4,5 @@ export interface INotification {
 
     type: ENotificationType;
     title: string;
+    isHidden: boolean;
 }

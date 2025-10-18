@@ -1,20 +1,31 @@
-"use client";
+"use client"
 
 import cl from './layout.module.scss'
 import {Header} from "@authPages/Components/Header/Header";
 import {Sidebar} from "@authPages/Components/SideBad/Sidebar";
 import {Container} from "@Components/Container/Container";
 import {Circles} from "@authPages/Components/Circles/Circles";
-import {type PropsWithChildren} from "react";
+import {type PropsWithChildren, useEffect} from "react";
 import {Preloader} from "@Components/Preloader/Preloader";
 import {AddTransaction} from "@authPages/(transactions)/Components/Modals/AddTransaction/AddTransaction";
 import {LogOutModal} from "@authPages/Components/LogOutModal/LogOutModal";
-import {TransactionProvider} from "@authPages/Providers/transaction.provider";
+import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
+import {useTransactionService} from "@authPages/api/transactionService.api";
+import type {Socket} from "socket.io-client";
 
 export default function Layout({ children }: PropsWithChildren) {
 
+    const {connectSocketIo, disconnectSocketIo}: ITransactionService = useTransactionService();
+
+    useEffect((): () => void => {
+
+        const socket: Socket | undefined = connectSocketIo();
+
+        return () => disconnectSocketIo(socket);
+    }, [])
+
     return (
-        <TransactionProvider>
+        <>
             <Header />
             <main className={cl.main}>
                 <Container className={cl.container}>
@@ -26,6 +37,6 @@ export default function Layout({ children }: PropsWithChildren) {
                 <Circles/>
                 {process.env.NEXT_PUBLIC_MODE === "PROD" ? <Preloader /> : null}
             </main>
-        </TransactionProvider>
+        </>
     )
 }

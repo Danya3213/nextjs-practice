@@ -1,5 +1,5 @@
 import {type Dispatch, type ReactElement, type SetStateAction} from "react";
-import {InputLayout} from "@authPages/statistics/Components/List/Components/Search/Layout/InputLayout/InputLayout";
+import {InputLayout} from "@authPages/statistics/Components/Column/Components/Search/Layout/InputLayout/InputLayout";
 import {years} from "./constans/years.const";
 import {months} from "./constans/months.const";
 import cl from './search.module.scss'

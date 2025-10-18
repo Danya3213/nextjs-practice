@@ -1,15 +1,12 @@
-"use client"
-
 import {type ReactElement} from "react";
 import cl from './chart.module.scss'
 import {PieChart} from "@mui/x-charts/PieChart";
-import {useTransaction} from "@authPages/hooks/useTransaction";
-import type {ITransactionContext} from "@authPages/interfaces/transactionContext.interface";
 import {CustomTooltip} from "./Components/ToolTip";
+import type {IChangedTransaction} from "@authPages/interfaces/changedTransaction";
 
-export const Chart = (): ReactElement => {
-
-    const {transactions}: ITransactionContext = useTransaction();
+export const Chart = ({transactions}: {
+    transactions: IChangedTransaction[],
+}): ReactElement => {
 
     const data = [
         { label: 'Group A', value: 400, color: '#0088FE' },
@@ -33,7 +30,7 @@ export const Chart = (): ReactElement => {
                     series={[{
                         innerRadius: 105,
                         outerRadius: 143,
-                        data,
+                        data: transactions,
                     }]}
                     {...settings}
                     sx={{

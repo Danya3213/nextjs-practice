@@ -12,12 +12,14 @@ export const ListItem = ({onClick, date, type, category, comment, sum}: {
     sum: number;
 }): ReactElement => {
 
+    const dateString = date.replaceAll("-", '.');
+
     return (
         <li className={cl.li}>
             <div className={cl.content}>
-                <h5 className={cl.text}>{date}</h5>
+                <h5 className={cl.text}>{dateString}</h5>
                 <h5 className={cl.text}>{type ? "+" : "-"}</h5>
-                <h5 className={cl.text}>{category}</h5>
+                <h5 className={cl.text}>{category.toLowerCase()}</h5>
                 <h5 className={cl.text}>{comment}</h5>
                 <h5 className={type ? cl.sumActive : cl.sum}>{sum}</h5>
             </div>
