@@ -1,6 +1,8 @@
 .list {
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 103px 91px 146px 135px 90px;
+  grid-column-gap: 5px;
   padding: 16px 20px;
   background-color: #523B7E99;
   border-radius: 8px;
@@ -31,5 +33,10 @@
   &:nth-of-type(4) {
 
     margin-right: 104px;
+  }
+
+  &:nth-of-type(5) {
+
+    margin-left: 45px;
   }
 }

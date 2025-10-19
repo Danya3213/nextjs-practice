@@ -7,9 +7,12 @@
   padding-left: 20px;
 }
 
-.content {
+.content:first-of-type {
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 103px 91px 146px 135px 90px;
+  grid-auto-rows: auto;
+  grid-column-gap: 5px;
   align-items: center;
 
   &:last-of-type {
@@ -17,9 +20,16 @@
   }
 }
 
+.content:last-of-type {
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 45px;
+}
+
 .text {
   font-size: 14px;
-  white-space: nowrap;
   text-transform: capitalize;
 
   &:first-of-type {
@@ -36,10 +46,11 @@
 
   &:nth-of-type(4) {
     margin-right: 50px;
+    word-break: break-all;
   }
 
   &:last-of-type {
-    margin-right: 45px;
+    margin-left: 45px;
   }
 }
 

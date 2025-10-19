@@ -38,7 +38,6 @@ export const useTransactionService = (): ITransactionService => {
             socket.on("transactions", (transactions: ITransaction[]) => {
 
                 setTransactions(transactions);
-                console.log(transactions);
             });
 
             return socket;

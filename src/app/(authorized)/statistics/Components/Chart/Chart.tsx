@@ -1,19 +1,14 @@
 import {type ReactElement} from "react";
 import cl from './chart.module.scss'
 import {PieChart} from "@mui/x-charts/PieChart";
-import {CustomTooltip} from "./Components/ToolTip";
-import type {IChangedTransaction} from "@authPages/interfaces/changedTransaction";
+import type {
+    ITransactionStatisticContext
+} from "@authPages/statistics/interfaces/transactionStatisticContext.interface";
+import {useTransactionStatistic} from "@authPages/statistics/hooks/useTransactionStatistic";
 
-export const Chart = ({transactions}: {
-    transactions: IChangedTransaction[],
-}): ReactElement => {
+export const Chart = (): ReactElement => {
 
-    const data = [
-        { label: 'Group A', value: 400, color: '#0088FE' },
-        { label: 'Group B', value: 300, color: '#00C49F' },
-        { label: 'Group C', value: 300, color: '#FFBB28' },
-        { label: 'Group D', value: 200, color: '#FF8042' },
-    ];
+    const {statistic}: ITransactionStatisticContext = useTransactionStatistic();
 
     const settings = {
         width: 288,
@@ -30,7 +25,7 @@ export const Chart = ({transactions}: {
                     series={[{
                         innerRadius: 105,
                         outerRadius: 143,
-                        data: transactions,
+                        data: statistic,
                     }]}
                     {...settings}
                     sx={{
