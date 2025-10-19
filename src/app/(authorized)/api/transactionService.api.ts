@@ -93,11 +93,28 @@ export const useTransactionService = (): ITransactionService => {
         });
     }
 
+    async function updateTransaction(id: string, body: Partial<ITransaction>, cb: () => void = (): void => {}): Promise<ITransaction | undefined> {
+
+        return serviceLayout<ITransaction | undefined>(async (): Promise<ITransaction | undefined> => {
+
+            try {
+                const {data}: AxiosResponse<ITransaction | undefined> = await authApi.patch<ITransaction | undefined>(`/change/${id}`, body);
+                createNotification(ENotificationType.success, "Transaction was successfully updated");
+                cb();
+                return data;
+            } catch (err) {
+
+                createNotification(ENotificationType.error, "Error updating transaction");
+            }
+        })
+    }
+
     return  {
         connectSocketIo,
         disconnectSocketIo,
         getTransactions,
         createTransaction,
-        deleteTransaction
+        deleteTransaction,
+        updateTransaction
     }
 }

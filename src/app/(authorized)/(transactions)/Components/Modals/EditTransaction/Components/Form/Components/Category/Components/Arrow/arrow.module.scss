@@ -1,0 +1,38 @@
+.arrow {
+  width: 22px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  height: 100%;
+  transition: all ease-in-out 0.2s;
+
+  &::after, &::before {
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 13px;
+    height: 1px;
+    background-color: #FBFBFB;
+  }
+
+  &::after {
+
+    left: 0;
+    transform: rotate(45deg);
+  }
+
+  &::before {
+
+    right: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+.arrowActive {
+
+  @extend .arrow;
+  transform: translateY(-50%) scaleY(-1);
+}

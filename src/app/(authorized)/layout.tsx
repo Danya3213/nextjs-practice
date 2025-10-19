@@ -12,6 +12,7 @@ import {LogOutModal} from "@authPages/Components/LogOutModal/LogOutModal";
 import type {ITransactionService} from "@authPages/interfaces/transactionService.interface";
 import {useTransactionService} from "@authPages/api/transactionService.api";
 import type {Socket} from "socket.io-client";
+import {EditTransaction} from "@authPages/(transactions)/Components/Modals/EditTransaction/EditTransaction";
 
 export default function Layout({ children }: PropsWithChildren) {
 
@@ -33,6 +34,7 @@ export default function Layout({ children }: PropsWithChildren) {
                     {children}
                 </Container>
                 <AddTransaction/>
+                <EditTransaction/>
                 <LogOutModal/>
                 <Circles/>
                 {process.env.NEXT_PUBLIC_MODE === "PROD" ? <Preloader /> : null}

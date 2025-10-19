@@ -7,4 +7,5 @@ export interface ITransactionService {
     getTransactions: () => Promise<ITransaction[] | undefined>
     createTransaction: (trans: Omit<ITransaction, "_id">, cb?: () => void) => Promise<ITransaction | undefined>
     deleteTransaction: (id: string) => Promise<ITransaction | undefined>
+    updateTransaction: (id: string, body: Partial<ITransaction>, cb?: () => void) => Promise<ITransaction | undefined>
 }

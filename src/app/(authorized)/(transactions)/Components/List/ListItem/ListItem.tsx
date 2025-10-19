@@ -3,8 +3,9 @@ import cl from './listItem.module.scss';
 import type {ECategory} from "@authPages/enums/category.enum";
 import Image from "next/image";
 
-export const ListItem = ({onClick, date, type, category, comment, sum}: {
-    onClick: MouseEventHandler<HTMLButtonElement>;
+export const ListItem = ({onDelete, onUpdate, date, type, category, comment, sum}: {
+    onDelete: MouseEventHandler<HTMLButtonElement>;
+    onUpdate: MouseEventHandler<HTMLImageElement>;
     date: string;
     type: boolean;
     category: ECategory;
@@ -24,8 +25,8 @@ export const ListItem = ({onClick, date, type, category, comment, sum}: {
                 <h5 className={type ? cl.sumActive : cl.sum}>{sum}</h5>
             </div>
             <div className={cl.content}>
-                <Image className={cl.image} src="/svgs/edit.svg" alt="" width={14} height={14} />
-                <button onClick={onClick} className={cl.button}>
+                <Image className={cl.image} src="/svgs/edit.svg" alt="" width={14} height={14} onClick={onUpdate} />
+                <button onClick={onDelete} className={cl.button}>
                     Delete
                 </button>
             </div>

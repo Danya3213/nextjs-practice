@@ -1,0 +1,19 @@
+.label {
+
+  grid-area: sum;
+  border-bottom: 1px solid #FFFFFF66;
+}
+
+.input {
+
+  text-align: center;
+
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

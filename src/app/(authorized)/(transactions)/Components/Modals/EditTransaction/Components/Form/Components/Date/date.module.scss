@@ -1,0 +1,21 @@
+.label {
+
+  grid-area: date;
+  border-bottom: 1px solid #FFFFFF66;
+}
+
+.input {
+
+  text-align: center;
+  color: #FBFBFB;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+}
