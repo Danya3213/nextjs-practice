@@ -1,14 +1,16 @@
-export const months: string[] = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+import {EMonths} from "@authPages/statistics/enums/months.enum";
+
+export const months: EMonths[] = [
+    EMonths.January,
+    EMonths.February,
+    EMonths.March,
+    EMonths.April,
+    EMonths.May,
+    EMonths.June,
+    EMonths.July,
+    EMonths.August,
+    EMonths.September,
+    EMonths.October,
+    EMonths.November,
+    EMonths.December,
 ] as const;
